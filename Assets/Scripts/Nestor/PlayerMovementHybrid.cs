@@ -148,12 +148,8 @@ public class PlayerMovementHybrid : MonoBehaviour
         dashAvailable = false;
     }
 
-    IEnumerator DashCooldownOff()
-    {
-        dashAvailable = true;
-        yield return new WaitForSeconds(5f);
-    }
-    
+
+
     void CheckRotation()
     {
         if (currentMovement.z < 0 && currentMovement.x < 0)
