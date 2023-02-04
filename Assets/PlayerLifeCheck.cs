@@ -4,13 +4,35 @@ using UnityEngine;
 
 public class PlayerLifeCheck : MonoBehaviour
 {
+    public bool grounded = false;
+    public float groundedCheckDistance;
+    float bufferCheckDistance;
+
+
     void Start()
     {
         
     }
 
-    void Update()
+    private void FixedUpdate()
     {
+
+        isGrounded();
+
+        if (isGrounded() == false)
+        {
+            Death();
+        }
         
+    }
+
+    bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, 0.5f);
+    }
+
+    void Death()
+    {
+
     }
 }
