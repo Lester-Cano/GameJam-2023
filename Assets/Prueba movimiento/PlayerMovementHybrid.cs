@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class PlayerMovementHybrid : MonoBehaviour
 
     [SerializeField] float velocity;
     [SerializeField] Vector3 pos, posint;
+
 
 
 
@@ -54,10 +56,12 @@ public class PlayerMovementHybrid : MonoBehaviour
     void Update()
     {
         if (isMovementPressed) { Move(); }
+
     }
 
     void Move()
     {
+
         if (currentMovement.x == 0 || currentMovement.z != 0)
         {
             pos += new Vector3(0, 0, currentMovement.z) * velocity * Time.deltaTime;
@@ -67,17 +71,38 @@ public class PlayerMovementHybrid : MonoBehaviour
             pos += new Vector3(currentMovement.x, 0, 0) * velocity * Time.deltaTime;
         }
 
-        posint.x = Mathf.Floor(pos.x);
-        posint.z = Mathf.Floor(pos.z);
+        //posint.x = Mathf.Floor(pos.x);
+        //posint.z = Mathf.Floor(pos.z);
         Debug.Log(currentMovement);
+
+        transform.position = Vector3.Lerp(transform.position, pos, 0.1f);
+
+
 
         CheckRotation();
 
-        transform.position = Vector3.Lerp(transform.position, posint, Time.time);
+       // LerpMovement(posint,1);
+        
+
 
 
     }
+    /*
+    IEnumerator LerpMovement(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = transform.position;
 
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+    }
+    */
     void CheckRotation()
     {
         if (currentMovement.z < 0)
@@ -96,7 +121,5 @@ public class PlayerMovementHybrid : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, 90f, 0f);
         }
-
-
     }
 }
