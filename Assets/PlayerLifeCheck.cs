@@ -21,7 +21,7 @@ public class PlayerLifeCheck : MonoBehaviour
 
         if (isGrounded() == false)
         {
-            Debug.Log("grounded");
+            Debug.Log(" not grounded");
             Death();
         }
         
@@ -29,7 +29,17 @@ public class PlayerLifeCheck : MonoBehaviour
 
     bool isGrounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, 0.5f);
+        Ray ray = new Ray(transform.position + Vector3.up * 0.25f, Vector3.down);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 0.3f))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     void Death()
