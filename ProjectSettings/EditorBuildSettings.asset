@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI Scene.unity
     guid: 978de5aa2d41eb245a2b97fd22d73ee3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Prueba movimiento hibrido.unity
     guid: 56dbd961af53c1d4da1c39e3bdd9cf56
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameplayScene.unity
     guid: 150441ef3d53d5640acf14c4764ee724
   m_configObjects: {}
