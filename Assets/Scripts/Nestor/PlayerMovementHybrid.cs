@@ -16,9 +16,9 @@ public class PlayerMovementHybrid : MonoBehaviour
     Vector2 currentMovementInput;
     Vector3 currentMovement;
     Vector3 startPosition;
-    [SerializeField] bool isMovementPressed, isDashing, dashAvailable = true;
+    [SerializeField] bool isMovementPressed, isDashing, dashAvailable = true, dashCool;
 
-    [SerializeField] float velocity, elapsedTime = 0f , dashDuration;
+    [SerializeField] float velocity, elapsedTime = 0f , dashDuration, dashCooldown;
     [SerializeField] Vector3 pos, posint;
 
     float counter = 0;
@@ -57,7 +57,7 @@ public class PlayerMovementHybrid : MonoBehaviour
     void Update()
     {
         if (isMovementPressed) { Move(); }
-        if (Input.GetKeyDown(KeyCode.F) && dashAvailable) { Dash(); }
+        if (Input.GetKeyDown(KeyCode.F) && dashAvailable && !isDashing) { Dash(); }
 
         if(isDashing) 
         {
@@ -65,16 +65,32 @@ public class PlayerMovementHybrid : MonoBehaviour
 
             float percentageTime = elapsedTime / dashDuration;
 
-            transform.position = (Vector3.Lerp(startPosition, startPosition + Vector3.forward * 3 , percentageTime));
+            transform.position = (Vector3.Lerp(startPosition, startPosition + transform.forward * 3 , percentageTime));
 
             if (percentageTime > 1)
             {
+                dashCool = true;
                 pos = transform.position;
-                elapsedTime= 0;
-                isDashing= false;
+                elapsedTime = 0;
+                percentageTime = 0;
+                isDashing = false;
+            }
+        }
+
+        if (dashCool)
+        {
+            dashCooldown += Time.deltaTime;
+
+            if (dashCooldown > 5)
+            {
+                dashAvailable = true;
+                dashCooldown = 0;
+                dashCool = false;
             }
 
         }
+
+        
     }
 
     void Move()
@@ -87,7 +103,7 @@ public class PlayerMovementHybrid : MonoBehaviour
 
         //posint.x = Mathf.Floor(pos.x);
         //posint.z = Mathf.Floor(pos.z);
-        pos.y = 1;
+        pos.y = 1.5f;
        // Debug.Log(currentMovement);
        
         transform.position = pos;
@@ -100,7 +116,12 @@ public class PlayerMovementHybrid : MonoBehaviour
         isDashing = true;
        
         dashAvailable = false;
+    }
 
+    IEnumerator DashCooldownOff()
+    {
+        dashAvailable = true;
+        yield return new WaitForSeconds(5f);
     }
     
     void CheckRotation()
