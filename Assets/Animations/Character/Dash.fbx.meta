@@ -1,50 +1,17 @@
 fileFormatVersion: 2
-guid: 75107856ee3acb94faf43146a943c271
+guid: 8e6070d648e9ef044821b6e6a27df3a6
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: -9125523489441110064
-    second: Armature|Action.001
+      74: -2246502780319343731
+    second: Armature|Dash
   - first:
-      74: 4864456487366326693
-    second: Armature|Action.002
+      74: 716256320322786533
+    second: Armature|Dead
   - first:
-      74: -6842666708266138392
-    second: Armature|Armature.001|mixamo.com|Layer0
-  - first:
-      74: 1450608747119229839
-    second: Armature|Armature.004|mixamo.com|Layer0
-  - first:
-      74: -7431735264738132144
-    second: Armature|Armature.004|mixamo.com|Layer0.001
-  - first:
-      74: -8468838788122896554
-    second: Armature|Armature.004|mixamo.com|Layer0.002
-  - first:
-      74: 5500168313040627940
-    second: Armature|Armature.005|mixamo.com|Layer0
-  - first:
-      74: 6931346035314687870
-    second: Armature|Armature.005|mixamo.com|Layer0.001
-  - first:
-      74: -4791504522942941401
-    second: Armature|Armature|mixamo.com|Layer0
-  - first:
-      74: 6165553400957861818
-    second: Armature|Armature|mixamo.com|Layer0.001
-  - first:
-      74: -7230177608608127634
-    second: Armature|DEAD
-  - first:
-      74: -8945691123924629249
-    second: Armature|Idle
-  - first:
-      74: 3178320806322046122
-    second: Armature|REACT
-  - first:
-      74: -7551964380084998518
-    second: Armature|Run
+      74: -5930976613826931502
+    second: Armature|HappyIdle
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -66,7 +33,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -133,13 +100,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
