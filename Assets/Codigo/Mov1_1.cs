@@ -5,8 +5,9 @@ using UnityEngine;
 public class Mov1_1 : MonoBehaviour
 {
     public int TamañoPlataforma = 3;
-    
-    public Vector3 limiteCrea;
+
+    public GameObject[] PuntoInstlvl1;
+    int paso;
  
     
     
@@ -16,39 +17,23 @@ public class Mov1_1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-  
-        
+
+        StartCoroutine(generar());
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (limiteCrea.x != TamañoPlataforma && limiteCrea.y != TamañoPlataforma)
+    
+    }
+
+    IEnumerator generar()
+    {
+        for (int i = 0; i < PuntoInstlvl1.Length; i++)
         {
-            for (int i = 0; i < TamañoPlataforma; i++)
-            {
-                limiteCrea = new Vector3(i, 0, 0);
-                if (i >= TamañoPlataforma)
-                {
-                    for (int a = 0; a < TamañoPlataforma; a++)
-                    {
-                        limiteCrea = new Vector3(0, 0, a);
-                        Instantiate<GameObject>(PrefabMapa, limiteCrea, PrefabMapa.transform.rotation);
-                    }
-                }
-                else
-                {
-                    Instantiate<GameObject>(PrefabMapa, limiteCrea, PrefabMapa.transform.rotation);
-                }
-
-
-            }
-        }
-
-        if (Input.GetKeyDown("r"))
-        {
-
-        }
+            Instantiate(PrefabMapa, PuntoInstlvl1[i].transform.position, PuntoInstlvl1[i].transform.rotation);
+            yield return (0.1);
+        }       
     }
 }
