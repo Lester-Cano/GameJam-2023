@@ -6,6 +6,10 @@ public class PrefabMap : MonoBehaviour
 {
     public Material MatBase;
 
+    public int TiempoEspam;
+
+    public GameObject Puas;
+
     // Start is called before the first frame update
 
     void Start()
@@ -14,8 +18,13 @@ public class PrefabMap : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+
+    IEnumerable ActPuas()
     {
-        
+        yield return new WaitForSeconds(TiempoEspam);
+        Instantiate(Puas, transform.position, transform.rotation);
+        yield return new WaitForSeconds(TiempoEspam);
+
     }
+
 }
