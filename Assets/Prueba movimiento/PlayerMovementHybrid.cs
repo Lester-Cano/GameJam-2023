@@ -20,7 +20,11 @@ public class PlayerMovementHybrid : MonoBehaviour
         playerInput.CharacterControls.Movement.started += context => 
         {
 
-            Debug.Log(context.ReadValue<Vector2>()); 
+            currentMovementInput = context.ReadValue<Vector2>();
+            currentMovement.x = currentMovementInput.x;
+            currentMovement.z = currentMovementInput.y;
+
+            isMovementPressed = currentMovement.x != 0 || currentMovement.z != 0;
 
         };
     }
@@ -35,9 +39,13 @@ public class PlayerMovementHybrid : MonoBehaviour
         playerInput.Disable();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (isMovementPressed) { Move(); }
+    }
+
+    void Move()
+    {
+        transform.Translate(currentMovement * Time.deltaTime);
     }
 }
