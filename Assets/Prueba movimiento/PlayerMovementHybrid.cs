@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,7 +19,7 @@ public class PlayerMovementHybrid : MonoBehaviour
     [SerializeField] float velocity;
     [SerializeField] Vector3 pos, posint;
 
-    
+
 
     void Awake()
     {
@@ -68,9 +69,34 @@ public class PlayerMovementHybrid : MonoBehaviour
 
         posint.x = Mathf.Floor(pos.x);
         posint.z = Mathf.Floor(pos.z);
+        Debug.Log(currentMovement);
 
-        transform.position = posint;
-        
-        
+        CheckRotation();
+
+        transform.position = Vector3.Lerp(transform.position, posint, Time.time);
+
+
+    }
+
+    void CheckRotation()
+    {
+        if (currentMovement.z < 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+        else if (currentMovement.x < 0)
+        {
+            transform.eulerAngles = new Vector3(0f, -90f, 0f);
+        }
+        else if (currentMovement.z > 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
+        else if (currentMovement.x > 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 90f, 0f);
+        }
+
+
     }
 }
