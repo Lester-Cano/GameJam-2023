@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Prueba movimiento/Prueba movimiento hibrido.unity
-    guid: 56dbd961af53c1d4da1c39e3bdd9cf56
-  - enabled: 1
     path: Assets/Teo/UI Scene.unity
     guid: 978de5aa2d41eb245a2b97fd22d73ee3
+  - enabled: 1
+    path: Assets/Prueba movimiento/Prueba movimiento hibrido.unity
+    guid: 56dbd961af53c1d4da1c39e3bdd9cf56
   m_configObjects: {}
