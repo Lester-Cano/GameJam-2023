@@ -30,10 +30,13 @@ public class Mov1_1 : MonoBehaviour
 
     IEnumerator generar()
     {
+        yield return new WaitForSeconds(0.01f);
         for (int i = 0; i < PuntoInstlvl1.Length; i++)
         {
+            
             Instantiate(PrefabMapa, PuntoInstlvl1[i].transform.position, PuntoInstlvl1[i].transform.rotation);
-            yield return (0.1);
+            yield return new WaitForSeconds(0.1f);
         }       
     }
 }
+    
