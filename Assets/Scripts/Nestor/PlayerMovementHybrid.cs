@@ -21,7 +21,7 @@ public class PlayerMovementHybrid : MonoBehaviour
     [SerializeField] float velocity, elapsedTime = 0f , dashDuration, dashCooldown;
     [SerializeField] Vector3 pos, posint;
 
-    float counter = 0;
+    Animator animator;
 
 
     void Awake()
@@ -33,6 +33,8 @@ public class PlayerMovementHybrid : MonoBehaviour
         playerInput.CharacterControls.Movement.performed += OnMovementInput;
 
         pos = transform.position;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void OnMovementInput(InputAction.CallbackContext context)
@@ -42,6 +44,32 @@ public class PlayerMovementHybrid : MonoBehaviour
         currentMovement.x = currentMovementInput.x;
         currentMovement.z = currentMovementInput.y;
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
+    }
+
+    void HandleAnimation()
+    {
+        bool Runnning = animator.GetBool("Running");
+        bool IsDashing = animator.GetBool("IsDashing");
+
+        if (isMovementPressed && !Runnning)
+        {
+            animator.SetBool("Running", true);
+        }
+        else if (!isMovementPressed && Runnning)
+        {
+            animator.SetBool("Running", false);
+        }
+
+        if (isDashing && !IsDashing)
+        {
+            animator.SetBool("IsDashing", true);
+        }
+        else if (!isDashing && IsDashing)
+        {
+            animator.SetBool("IsDashing", false);
+        }
+
+
     }
 
     private void OnEnable()
@@ -56,6 +84,8 @@ public class PlayerMovementHybrid : MonoBehaviour
 
     void Update()
     {
+        HandleAnimation();
+
         if (isMovementPressed) { Move(); }
         if (Input.GetKeyDown(KeyCode.F) && dashAvailable && !isDashing) { Dash(); }
 
@@ -103,7 +133,7 @@ public class PlayerMovementHybrid : MonoBehaviour
 
         //posint.x = Mathf.Floor(pos.x);
         //posint.z = Mathf.Floor(pos.z);
-        pos.y = 1.5f;
+        pos.y = 0.5f;
        // Debug.Log(currentMovement);
        
         transform.position = pos;

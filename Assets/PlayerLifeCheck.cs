@@ -21,6 +21,7 @@ public class PlayerLifeCheck : MonoBehaviour
 
         if (isGrounded() == false)
         {
+            Debug.Log("grounded");
             Death();
         }
         
