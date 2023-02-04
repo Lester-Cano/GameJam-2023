@@ -62,20 +62,25 @@ public class PlayerMovementHybrid : MonoBehaviour
     void Move()
     {
 
-        if (currentMovement.x == 0 || currentMovement.z != 0)
+        if (currentMovement.x == 0 && currentMovement.z != 0)
         {
             pos += new Vector3(0, 0, currentMovement.z) * velocity * Time.deltaTime;
         }
-        else if (currentMovement.x != 0 || currentMovement.z == 0)
+        else if (currentMovement.x != 0 && currentMovement.z == 0)
         {
             pos += new Vector3(currentMovement.x, 0, 0) * velocity * Time.deltaTime;
         }
+        else if (currentMovement.z != 0 && currentMovement.x != 0)
+        {
+            pos += Vector3.zero;
+        }
 
-        //posint.x = Mathf.Floor(pos.x);
-        //posint.z = Mathf.Floor(pos.z);
-        Debug.Log(currentMovement);
+        posint.x = Mathf.Floor(pos.x);
+        posint.z = Mathf.Floor(pos.z);
+        posint.y = 1;
+       // Debug.Log(currentMovement);
 
-        transform.position = Vector3.Lerp(transform.position, pos, 0.1f);
+        transform.position = posint;
 
 
 
