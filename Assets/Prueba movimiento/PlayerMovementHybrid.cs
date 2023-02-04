@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.Timeline;
 
 public class PlayerMovementHybrid : MonoBehaviour
 {
@@ -13,20 +15,29 @@ public class PlayerMovementHybrid : MonoBehaviour
     Vector3 currentMovement;
     bool isMovementPressed;
 
+    [SerializeField] float velocity;
+    [SerializeField] Vector3 pos, posint;
+
+    
+
     void Awake()
     {
         playerInput = new PlayerInput();
 
-        playerInput.CharacterControls.Movement.started += context => 
-        {
+        playerInput.CharacterControls.Movement.started += OnMovementInput;
+        playerInput.CharacterControls.Movement.canceled += OnMovementInput;
+        playerInput.CharacterControls.Movement.performed += OnMovementInput;
 
-            currentMovementInput = context.ReadValue<Vector2>();
-            currentMovement.x = currentMovementInput.x;
-            currentMovement.z = currentMovementInput.y;
+        pos = transform.position;
+    }
 
-            isMovementPressed = currentMovement.x != 0 || currentMovement.z != 0;
+    void OnMovementInput(InputAction.CallbackContext context)
+    {
+        currentMovementInput = context.ReadValue<Vector2>();
 
-        };
+        currentMovement.x = currentMovementInput.x;
+        currentMovement.z = currentMovementInput.y;
+        isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
     }
 
     private void OnEnable()
@@ -46,6 +57,20 @@ public class PlayerMovementHybrid : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(currentMovement * Time.deltaTime);
+        if (currentMovement.x == 0 || currentMovement.z != 0)
+        {
+            pos += new Vector3(0, 0, currentMovement.z) * velocity * Time.deltaTime;
+        }
+        else if (currentMovement.x != 0 || currentMovement.z == 0)
+        {
+            pos += new Vector3(currentMovement.x, 0, 0) * velocity * Time.deltaTime;
+        }
+
+        posint.x = Mathf.Floor(pos.x);
+        posint.z = Mathf.Floor(pos.z);
+
+        transform.position = posint;
+        
+        
     }
 }
