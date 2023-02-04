@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Mov1_1 : MonoBehaviour
 {
 
@@ -24,10 +25,43 @@ public class Mov1_1 : MonoBehaviour
 
     public float TimeAnimEspera;
 
+    public int RandomMap1;
+    public int RandomMap2;
+    public int RandomMap3;
+
+    public float tiempoSpamLvl1;
+    public float tiempoSpamLvl2;
+    public float tiempoSpamLvl3;
+
+    public int cantidadPantalla1;
+    public int cantidadPantalla2;
+    public int cantidadPantalla3;
+
+    public bool evento;
+
+    [Header("Apartado de Daño")]
+
+    public GameObject prePuas;
+    public GameObject Puas;
+    public GameObject partiPuas;
+    public float TiempoEspamPuas;
+
+    public GameObject preRaices;
+    public GameObject Raices;
+    public GameObject partiRaiz;
+    public float TiempoEspamRaices;
+
+    public GameObject preBarril;
+    public GameObject Barril;
+    public GameObject partiBarril;
+    public float TiempoEspamBarril;
+
     // Start is called before the first frame update
     void Start()  
     {
-    
+        RandomMap1 = Random.RandomRange(0, PuntoInstlvl1.Length);
+        RandomMap2 = Random.RandomRange(0, Level2AlL.Length);
+        RandomMap3 = Random.RandomRange(0, Level3All.Length);
 
     }
 
@@ -49,6 +83,10 @@ public class Mov1_1 : MonoBehaviour
             SumarLvl3();
             activarlvl3 = false;
         }
+
+
+
+
     }
 
     IEnumerator generarlvl1()
@@ -97,6 +135,55 @@ public class Mov1_1 : MonoBehaviour
 
         StartCoroutine(generarlvl3());
     }
-}
+
+
+    public void PrimerNivel() 
+    {
+       
 
     
+    }
+
+    IEnumerator RandomLvl1()
+    {
+        yield return new WaitForSeconds(tiempoSpamLvl1);
+        for (int i = 0; i < cantidadPantalla1; i++)
+        {
+            Instantiate(Puas, PuntoInstlvl1[i].transform.position, PuntoInstlvl1[i].transform.rotation);
+        }
+        yield return new WaitForSeconds(tiempoSpamLvl1);
+        if (!evento)
+         StartCoroutine(RandomLvl1());       
+
+    }
+
+    
+
+    /*------------------------------Apartado daño--------------------------------*/
+
+    IEnumerator ActPuas()
+    {
+        Instantiate(prePuas, transform.position, transform.rotation);
+        yield return new WaitForSeconds(TiempoEspamPuas);
+        Instantiate(partiPuas, transform.position, transform.rotation);
+        Instantiate(Puas, transform.position, transform.rotation);
+
+    }
+    IEnumerator ActRaices()
+    {
+        Instantiate(preRaices, transform.position, transform.rotation);
+        yield return new WaitForSeconds(TiempoEspamRaices);
+        Instantiate(partiRaiz, transform.position, transform.rotation);
+        Instantiate(Raices, transform.position, transform.rotation);
+
+    }
+    IEnumerator ActBarril()
+    {
+        Instantiate(preBarril, transform.position, transform.rotation);
+        yield return new WaitForSeconds(TiempoEspamBarril);
+        Instantiate(partiBarril, transform.position, transform.rotation);
+        Instantiate(Barril, transform.position, transform.rotation);
+    }
+
+}
+
