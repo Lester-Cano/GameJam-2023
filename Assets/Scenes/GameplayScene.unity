@@ -1975,7 +1975,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7384,7 +7384,7 @@ PrefabInstance:
       objectReference: {fileID: 2077827393}
     - target: {fileID: 345882175054835305, guid: 51c183182fdf6964f9b22d1250f0e635, type: 3}
       propertyPath: groundedCheckDistance
-      value: 3
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 2597087576797037788, guid: 51c183182fdf6964f9b22d1250f0e635, type: 3}
       propertyPath: m_Volume
@@ -9219,6 +9219,7 @@ Transform:
   m_Children:
   - {fileID: 1362819933}
   - {fileID: 1780983540}
+  - {fileID: 931435801}
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
