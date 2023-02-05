@@ -34,7 +34,7 @@ public class PlayerLifeCheck : MonoBehaviour
             bool Falling = animator.GetBool("Grounded");
             animator.SetBool("Grounded", true);
         }
-        
+
     }
 
     bool isGrounded()
@@ -65,7 +65,7 @@ public class PlayerLifeCheck : MonoBehaviour
 
         bool Dead = animator.GetBool("Dead");
         animator.SetBool("Dead", true);
-        
+
         PlayerMovementHybrid pMH = GetComponent<PlayerMovementHybrid>();
         pMH.dead = true;
 
@@ -80,16 +80,15 @@ public class PlayerLifeCheck : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-
         Debug.Log("triger");
 
-        if (other.tag=="Dead")
+        if (other.tag == "Dead")
         {
             Debug.Log("muerase");
             Death();
         }
-    }
 
+    }
 }
