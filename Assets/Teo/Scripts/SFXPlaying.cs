@@ -9,6 +9,7 @@ public class SFXPlaying : MonoBehaviour
     PlayerMovementHybrid PlayerReffDash;
     PlayerLifeCheck PlayerReffDie;
     public bool deathCheck;
+    public float min, max;
 
     private void Start()
     {

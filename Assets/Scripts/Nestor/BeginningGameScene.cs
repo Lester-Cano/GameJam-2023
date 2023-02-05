@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class BeginningGameScene : MonoBehaviour
 {
-    [SerializeField] Canvas fade;
+    [SerializeField] Canvas fade, clock;
 
     [SerializeField] GameObject canvasfirst1, canvasfirst2, canvasfirst3;
 
     [SerializeField] Material Skybox1, Skybox2, Skybox3;
 
+    public bool TransitionBool;
+
     float timer = 0f;
 
-    //AudioSource audioswitch;
+    public AudioSource audioswitch;
 
     private void Start()
     {
@@ -22,7 +24,12 @@ public class BeginningGameScene : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
+
+        if (timer % 60 < 14)
+        {
+            timer += Time.deltaTime;
+        }
+
 
         if (timer % 60 > 5 && timer % 60 < 7)
         {
@@ -39,29 +46,34 @@ public class BeginningGameScene : MonoBehaviour
         else if (timer % 60 > 11 && timer % 60 < 12)
         {
             fade.gameObject.SetActive(false);
-            // audioswitch.Play();
-            Destroy(gameObject);
+            TransitionBool= false;
+            audioswitch.Play();
+            clock.gameObject.SetActive(true);
+            
         }
     }
 
     void phase1()
     {
         fade.gameObject.SetActive(true);
-        //audioswitch.Play();
+        audioswitch.Play();
         canvasfirst1.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox2;
+        TransitionBool = true;
     }
     void phase2()
     {
         canvasfirst2.gameObject.SetActive(true);
-        //audioswitch.Play();
+        audioswitch.Play();
         fade.gameObject.SetActive(false);
+        TransitionBool= false;
     }
 
     void phase3()
     {
-        //audioswitch.Play();
+        audioswitch.Play();
         fade.gameObject.SetActive(true);
+        TransitionBool= true;
         canvasfirst3.gameObject.SetActive(true);
         canvasfirst2.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox3;

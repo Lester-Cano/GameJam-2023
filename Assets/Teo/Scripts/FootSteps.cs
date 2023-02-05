@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class FootSteps : MonoBehaviour
 {
-    public AudioSource StepSFX;
-    private AudioClip clip;
-   
+    [SerializeField]
+    private AudioClip[] clips;
 
-
+    private AudioSource audioSource;
 
     private void Awake()
     {
-        StepSFX = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
-
-    /*public void PlayStepSFX()
+    private AudioClip GetRandomClip()
     {
-        StepSFX.PlayOneShot;
-    }*/
+        return clips[UnityEngine.Random.Range(0, clips.Length)];
+    }
     private void Step()
     {
-        StepSFX.PlayOneShot(clip);
+        AudioClip clip = GetRandomClip();
+        audioSource.PlayOneShot(clip);
     }
 
 
