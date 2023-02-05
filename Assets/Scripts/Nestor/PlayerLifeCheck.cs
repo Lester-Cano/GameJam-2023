@@ -25,7 +25,6 @@ public class PlayerLifeCheck : MonoBehaviour
         {
             Debug.Log(" not grounded");
             deadGround += Time.deltaTime;
-            Death();
 
             bool Falling = animator.GetBool("Grounded");
             animator.SetBool("Grounded", false);
