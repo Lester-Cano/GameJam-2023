@@ -5,7 +5,7 @@ using UnityEngine;
 public class ControladorPuntos : MonoBehaviour
 {
     public static ControladorPuntos Instance;
-    [SerializeField] private float cantidadPuntos;
+    [SerializeField] public int cantidadPuntos;
 
     private void Awake()
     {
@@ -20,9 +20,18 @@ public class ControladorPuntos : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SumarPuntos(float puntos)
+    public void SumarPuntos(int puntos)
     {
         cantidadPuntos += puntos;
+    }
+
+    public void FinalPartida()
+    {
+        PlayerPrefs.SetInt ("Temporal Points",cantidadPuntos);
+        //Lllamr funcion
+        Highest hg = GameObject.FindObjectOfType<Highest>();
+        hg.ReviewData();
+
     }
 
 

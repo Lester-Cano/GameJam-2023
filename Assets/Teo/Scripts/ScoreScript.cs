@@ -7,7 +7,7 @@ public class ScoreScript : MonoBehaviour
 {
     public TextMeshProUGUI MyscoreText;
     [SerializeField]public int ScoreNum;
-    [SerializeField] private float cantidadPuntos = 1;
+    [SerializeField] private int cantidadPuntos = 1;
     
     // Start is called before the first frame update
     void Start()

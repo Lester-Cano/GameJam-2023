@@ -19,7 +19,7 @@ public class PlayerMovementHybrid : MonoBehaviour
     [SerializeField] bool isMovementPressed, isDashing, dashAvailable = true, dashCool;
 
     [SerializeField] float velocity, elapsedTime = 0f , dashDuration, dashCooldown;
-    [SerializeField] Vector3 pos, posint;
+    [SerializeField] public Vector3 pos, posint;
 
     public bool dead = false;
 
