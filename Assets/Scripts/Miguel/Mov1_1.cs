@@ -165,5 +165,19 @@ public class Mov1_1 : MonoBehaviour
     {
 
     }
+
+    public void Encender()
+    {
+        Debug.Log($"Encender >> {gameObject.name}");
+        StartCoroutine(IniciarJuego());
+    }
+
+    IEnumerator IniciarJuego() 
+    {
+
+        yield return new WaitForSeconds(1);
+        activarlvl1 = true;
+    
+    }
 }
 
