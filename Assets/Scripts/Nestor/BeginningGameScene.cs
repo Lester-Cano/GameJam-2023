@@ -17,10 +17,12 @@ public class BeginningGameScene : MonoBehaviour
 
     public AudioSource audioswitch;
 
-    private void Start()
+   /* public void playLightSFX()
     {
-        
+        audioswitch.Play();
     }
+    */
+
 
     private void Update()
     {
@@ -47,7 +49,7 @@ public class BeginningGameScene : MonoBehaviour
         {
             fade.gameObject.SetActive(false);
             TransitionBool= false;
-            audioswitch.Play();
+          //  playLightSFX();
             clock.gameObject.SetActive(true);
             
         }
@@ -56,26 +58,26 @@ public class BeginningGameScene : MonoBehaviour
     void phase1()
     {
         fade.gameObject.SetActive(true);
-        audioswitch.Play();
         canvasfirst1.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox2;
         TransitionBool = true;
+        //playLightSFX();
     }
     void phase2()
     {
         canvasfirst2.gameObject.SetActive(true);
-        audioswitch.Play();
         fade.gameObject.SetActive(false);
         TransitionBool= false;
+        //playBGMusic();
     }
 
     void phase3()
     {
-        audioswitch.Play();
         fade.gameObject.SetActive(true);
         TransitionBool= true;
         canvasfirst3.gameObject.SetActive(true);
         canvasfirst2.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox3;
+        //playLightSFX();
     }
 }
