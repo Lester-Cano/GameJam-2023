@@ -92,7 +92,7 @@ public class BeginningGameScene : MonoBehaviour
         //playLightSFX();      
         if (!entera3)
         {
-            entre2();
+            entre3();
         }
     }
     public bool entera2 = false;
