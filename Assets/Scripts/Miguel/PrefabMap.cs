@@ -25,6 +25,7 @@ public class PrefabMap : MonoBehaviour
     public float TiempoEspamPuas;
 
 
+    
     public float TimeAnimEspera;
 
 
@@ -32,13 +33,14 @@ public class PrefabMap : MonoBehaviour
     public float tiempoSpamLvl2;
     public float tiempoSpamLvl3;
 
+    public bool isActive;
 
 
 
     // Start is called before the first frame update
     private void Awake()
     {
-        
+
         main = FindObjectOfType<Mov1_1>();
 
     }
@@ -51,37 +53,28 @@ public class PrefabMap : MonoBehaviour
         BuenoPrefOn.SetActive(false);
         BuenoPrefOff.SetActive(false);
 
-        Puas.SetActive(false);   
-              
+        Puas.SetActive(false);
+
     }
     private void Update()
     {
-        
+
     }
+
     // Update is called once per frame
     IEnumerator RandomLvl1()
     {
+        isActive = true;
         yield return new WaitForSeconds(tiempoSpamLvl1);
-        
-       
-            Puas.SetActive(true);
-
-       
+        Puas.SetActive(true);
         yield return new WaitForSeconds(tiempoSpamLvl1);
-        if (main.evento == false)
-        {
-            Puas.SetActive(false);
-            StartCoroutine(RandomLvl1());
-        }
-        else if (main.evento == true )
-        {
-
-        }
-
+        Puas.SetActive(false);
+        isActive = false;
     }
 
-    public void Encender() 
+    public void Encender()
     {
+        Debug.Log($"Encender >> {gameObject.name}");
         StartCoroutine(RandomLvl1());
     }
 }
