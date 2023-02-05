@@ -17,7 +17,13 @@ public class BeginningGameScene : MonoBehaviour
 
     public AudioSource audioswitch;
 
-   /* public void playLightSFX()
+    public Mov1_1 main;
+
+    private void Awake()
+    {
+        main = FindObjectOfType<Mov1_1>();
+    }
+    /* public void playLightSFX()
     {
         audioswitch.Play();
     }
@@ -58,12 +64,20 @@ public class BeginningGameScene : MonoBehaviour
         canvasfirst1.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox2;
         TransitionBool = true;
+        //playLightSFX();
+        main.tiempoSpamLvl = 2;
+        main.cantidadPantalla = 10;
+
     }
     void phase2()
     {
         canvasfirst2.gameObject.SetActive(true);
         fade.gameObject.SetActive(false);
         TransitionBool= false;
+        //playBGMusic();
+        main.tiempoSpamLvl = 1.5f;
+        main.cantidadPantalla = 26;
+
     }
 
     void phase3C()
@@ -73,5 +87,13 @@ public class BeginningGameScene : MonoBehaviour
         canvasfirst3.gameObject.SetActive(true);
         canvasfirst2.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox3;
+        //playLightSFX();
+        main.tiempoSpamLvl = 1f;
+        main.cantidadPantalla = 50;
     }
+
+
+
+
+
 }

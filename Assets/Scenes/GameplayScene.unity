@@ -10484,11 +10484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3525808735352689395, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
       propertyPath: activarlvl2
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3525808735352689395, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
       propertyPath: activarlvl3
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3525808735352689395, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
       propertyPath: TimeAnimEspera
