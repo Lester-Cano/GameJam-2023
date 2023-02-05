@@ -66,9 +66,5 @@ public class PlayerLifeCheck : MonoBehaviour
         
         PlayerMovementHybrid pMH = GetComponent<PlayerMovementHybrid>();
         pMH.dead = true;
-
-        
-        
-
     }
 }

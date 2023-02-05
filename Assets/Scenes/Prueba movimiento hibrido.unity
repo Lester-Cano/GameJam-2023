@@ -362,11 +362,14 @@ MonoBehaviour:
   isMovementPressed: 0
   isDashing: 0
   dashAvailable: 1
+  dashCool: 0
   velocity: 5
   elapsedTime: 0
   dashDuration: 0.5
+  dashCooldown: 0
   pos: {x: 0, y: 0, z: 0}
   posint: {x: 0, y: 0, z: 0}
+  dead: 0
 --- !u!65 &1084398205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -604,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -669,7 +672,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15ab91a9c4ce4941b909ab5328fe03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clock: {fileID: 405887100}
+  clock23: {fileID: 0}
+  clockFM: {fileID: 0}
+  clockSM: {fileID: 0}
+  clockFS: {fileID: 0}
+  clockSS: {fileID: 0}
 --- !u!1 &2031854523
 GameObject:
   m_ObjectHideFlags: 0
