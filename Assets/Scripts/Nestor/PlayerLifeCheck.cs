@@ -30,7 +30,7 @@ public class PlayerLifeCheck : MonoBehaviour
             bool Falling = animator.GetBool("Grounded");
             animator.SetBool("Grounded", false);
 
-            transform.position += Vector3.down * 4.9f;
+            transform.position += Vector3.down * .098f;
 
         }
         else
