@@ -8,6 +8,7 @@ public class PlayerLifeCheck : MonoBehaviour
     public float groundedCheckDistance;
     float bufferCheckDistance;
 
+    [SerializeField] Canvas Canvasdeath;
 
     Animator animator;
 
@@ -69,6 +70,8 @@ public class PlayerLifeCheck : MonoBehaviour
         
         PlayerMovementHybrid pMH = GetComponent<PlayerMovementHybrid>();
         pMH.dead = true;
+
+        Canvasdeath.gameObject.SetActive(true);
         
 
     }

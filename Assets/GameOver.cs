@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameOver : MonoBehaviour
+{
+    // Start is called before the first frame update
+    
+    public void restart()
+    {
+        SceneManager.LoadScene(SceneManager.sceneCount);
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(SceneManager.sceneCount - 1);
+    }
+
+
+}

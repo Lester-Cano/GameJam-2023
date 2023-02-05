@@ -35,7 +35,7 @@ public class BeginningGameScene : MonoBehaviour
 
         if (timer > 23 && timer < 23.5)
         {
-            phase1();
+            phase1C();
         }
         else if (timer > 24 && timer < 47)
         {
@@ -43,16 +43,16 @@ public class BeginningGameScene : MonoBehaviour
         }
         else if (timer > 47 && timer < 47.5)
         {
-            phase3();
+            phase3C();
         }
-        else if (timer > 48 && timer < 49)
+        else if (timer > 48 && timer < 48.5)
         {
             fade.gameObject.SetActive(false);
             TransitionBool= false;
         }
     }
 
-    void phase1()
+    void phase1C()
     {
         fade.gameObject.SetActive(true);
         canvasfirst1.gameObject.SetActive(false);
@@ -66,7 +66,7 @@ public class BeginningGameScene : MonoBehaviour
         TransitionBool= false;
     }
 
-    void phase3()
+    void phase3C()
     {
         fade.gameObject.SetActive(true);
         TransitionBool= true;
