@@ -22,7 +22,7 @@ public class PrefabMap : MonoBehaviour
     [Header("Daños")]
 
     public GameObject Puas;
-    public float TiempoEspamPuas;
+    public float TiempoEspamPuas = 1;
 
 
     
@@ -55,6 +55,8 @@ public class PrefabMap : MonoBehaviour
 
         Puas.SetActive(false);
 
+
+
     }
     private void Update()
     {
@@ -65,16 +67,30 @@ public class PrefabMap : MonoBehaviour
     IEnumerator RandomLvl1()
     {
         isActive = true;
+        MaloPrefOn.SetActive(true);
+
         yield return new WaitForSeconds(tiempoSpamLvl1);
+        MaloPrefOn.SetActive(false);
+
+        MalooPrefOff.SetActive(true);
+
         Puas.SetActive(true);
-        yield return new WaitForSeconds(tiempoSpamLvl1);
+
+        yield return new WaitForSeconds(TiempoEspamPuas);
+        MalooPrefOff.SetActive(false);
         Puas.SetActive(false);
         isActive = false;
     }
 
+    IEnumerator preOn() 
+    {
+        yield return new WaitForSeconds(3);
+        StartCoroutine(RandomLvl1());
+
+    }
     public void Encender()
     {
         Debug.Log($"Encender >> {gameObject.name}");
-        StartCoroutine(RandomLvl1());
+        StartCoroutine(preOn());
     }
 }
