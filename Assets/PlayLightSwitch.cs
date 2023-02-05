@@ -23,7 +23,6 @@ public class PlayLightSwitch : MonoBehaviour
         }
         else {
             Identificadorsfx.SetActive(false);
-
         }
     }
 }
