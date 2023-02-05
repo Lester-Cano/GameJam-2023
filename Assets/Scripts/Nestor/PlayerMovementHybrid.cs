@@ -10,9 +10,9 @@ using UnityEngine.Timeline;
 
 public class PlayerMovementHybrid : MonoBehaviour
 {
-    public AudioSource AudiodePasos;
-    ChangeAudio changeAudio;
-    PlayerInput playerInput;
+
+    PlayerMovementHybrid PlayerReff;
+     PlayerInput playerInput;
     public float velocidadNormalizada;
     public InputActionProperty movimiento;
 
@@ -31,7 +31,6 @@ public class PlayerMovementHybrid : MonoBehaviour
 
     void Awake()
     {
-        changeAudio = GetComponent<ChangeAudio>();
         
         playerInput = new PlayerInput();
 
@@ -93,7 +92,6 @@ public class PlayerMovementHybrid : MonoBehaviour
     void Update()
     {
         velocidadNormalizada = Mathf.Lerp(velocidadNormalizada, movimiento.action.ReadValue<Vector2>().magnitude,0.2f);
-        AudiodePasos.volume = velocidadNormalizada;
         HandleAnimation();
 
         if (isMovementPressed && !dead) { Move(); }
@@ -135,8 +133,10 @@ public class PlayerMovementHybrid : MonoBehaviour
             }
 
         }
+        {
 
-        
+        }
+
     }
 
     void Move()
@@ -205,4 +205,7 @@ public class PlayerMovementHybrid : MonoBehaviour
             transform.eulerAngles = new Vector3(0f, -90f, 0f);
         }
     }
+
+
+ 
 }
