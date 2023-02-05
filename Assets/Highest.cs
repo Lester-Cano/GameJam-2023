@@ -4,7 +4,6 @@ using TMPro;
 
 public class Highest : MonoBehaviour
 {
-    public TextMeshProUGUI score, highScore;
     public string paso;
 
 
@@ -13,7 +12,6 @@ public class Highest : MonoBehaviour
     {
 
         paso  = PlayerPrefs.GetFloat("HighScore", 0).ToString();
-        highScore.text = paso;
     }
 
     public void ReviewData()

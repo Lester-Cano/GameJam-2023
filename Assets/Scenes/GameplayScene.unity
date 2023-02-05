@@ -609,11 +609,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214438148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c4752be82f2d144f9f3ea372f1fd1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Identificadorsfx: {fileID: 0}
 --- !u!1 &221586869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3525808736392694687, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
@@ -921,6 +922,7 @@ GameObject:
   - component: {fileID: 343334070}
   - component: {fileID: 343334069}
   - component: {fileID: 343334068}
+  - component: {fileID: 343334073}
   m_Layer: 5
   m_Name: Canvas Clock
   m_TagString: Untagged
@@ -980,6 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15ab91a9c4ce4941b909ab5328fe03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeDurationScore: 0
   clock23: {fileID: 1374963411}
   clockFM: {fileID: 1591865064}
   clockSM: {fileID: 2085631643}
@@ -1032,6 +1035,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &343334073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343334067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a9f40478e2a1843bd2d9bd5653cc6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantidadPuntos: 0
 --- !u!1 &354082263
 GameObject:
   m_ObjectHideFlags: 0
@@ -8372,6 +8388,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1466145410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466145408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831220d6e019b524eae8996fe53e5e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paso: 
 --- !u!1 &1489646078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 827898537000707306, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
