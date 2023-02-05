@@ -23,7 +23,7 @@ public class UIClock : MonoBehaviour
     {
         timer += Time.deltaTime;
         UpdateTimerDisplay(timer);
-        if (timer > 23)
+        if (timer > 0)
         {
             MapEvent();
             timer= 0;
@@ -32,7 +32,7 @@ public class UIClock : MonoBehaviour
 
     void ResetTimer()
     {
-        timer = timeDuration;
+        timer -= timeDuration;
     }
 
     void UpdateTimerDisplay(float time)

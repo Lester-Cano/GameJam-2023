@@ -134,7 +134,7 @@ public class PlayerMovementHybrid : MonoBehaviour
     void Move()
     {
 
-        if (currentMovement.x != 0 || currentMovement.z != 0)
+        if ((currentMovement.x != 0 || currentMovement.z != 0) && !isDashing)
         {
             pos += new Vector3(currentMovement.x, 0, currentMovement.z) * velocity * Time.deltaTime;
         }
