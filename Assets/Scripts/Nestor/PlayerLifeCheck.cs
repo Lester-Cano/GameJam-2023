@@ -66,5 +66,15 @@ public class PlayerLifeCheck : MonoBehaviour
         
         PlayerMovementHybrid pMH = GetComponent<PlayerMovementHybrid>();
         pMH.dead = true;
+
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="Dead")
+        {
+            Death();
+        }
+    }
+
 }

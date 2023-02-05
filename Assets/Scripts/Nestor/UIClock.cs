@@ -25,7 +25,7 @@ public class UIClock : MonoBehaviour
         timer23 -= Time.deltaTime;
         UpdateTimerDisplay23(timer23);
         UpdateTimerDisplay(normalTimer);
-        if (timer23 <= 0)
+        if (timer23 == 0)
         {
             MapEvent();
             timer23= 0;
