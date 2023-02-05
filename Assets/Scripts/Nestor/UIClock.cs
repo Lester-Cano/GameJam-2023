@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class UIClock : MonoBehaviour
 {
-    float timeDuration = 0f;
+    public float timeDurationScore = 0f;
 
     float timer23 = 23, normalTimer;
 
@@ -34,7 +34,7 @@ public class UIClock : MonoBehaviour
 
     void ResetTimer()
     {
-        timer23 -= timeDuration;
+        timer23 -= timeDurationScore;
     }
 
     void UpdateTimerDisplay23(float time)
@@ -50,7 +50,7 @@ public class UIClock : MonoBehaviour
         float minutes = Mathf.Floor(time / 60);
         float seconds = Mathf.Floor(time % 60);
 
-        string currentTime = string.Format("{00:00}{1:00}", minutes, seconds);
+        string currentTime = string.Format("{00:00}:{1:00}", minutes, seconds);
         clockFM.text = currentTime[0].ToString();
         clockSM.text = currentTime[1].ToString();
         clockFS.text = currentTime[2].ToString();

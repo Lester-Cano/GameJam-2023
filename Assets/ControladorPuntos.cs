@@ -20,15 +20,18 @@ public class ControladorPuntos : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    /*
     public void SumarPuntos(int puntos)
     {
         cantidadPuntos += puntos;
     }
-
+    */
     public void FinalPartida()
     {
-        PlayerPrefs.SetInt ("Temporal Points",cantidadPuntos);
-        //Lllamr funcion
+        UIClock uiclock = GetComponent<UIClock>();
+
+        PlayerPrefs.SetFloat("Temporal Points", uiclock.timeDurationScore);
+
         Highest hg = GameObject.FindObjectOfType<Highest>();
         hg.ReviewData();
 

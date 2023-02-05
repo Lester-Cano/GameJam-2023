@@ -54,6 +54,11 @@ public class PlayerLifeCheck : MonoBehaviour
 
     void Death()
     {
+
+        ControladorPuntos cp = FindObjectOfType<ControladorPuntos>();
+
+        cp.FinalPartida();
+
         is_death = true;
         Rigidbody rgb = GetComponent<Rigidbody>();
         rgb.constraints = RigidbodyConstraints.FreezeAll;
