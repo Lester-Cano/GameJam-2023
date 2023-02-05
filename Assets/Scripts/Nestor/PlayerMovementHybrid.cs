@@ -91,11 +91,17 @@ public class PlayerMovementHybrid : MonoBehaviour
 
         if(isDashing) 
         {
+            ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+            ps.Play();
+
             elapsedTime += Time.deltaTime;
 
             float percentageTime = elapsedTime / dashDuration;
 
+            
+
             transform.position = (Vector3.Lerp(startPosition, startPosition + transform.forward * 3 , percentageTime));
+            
 
             if (percentageTime > 1)
             {
