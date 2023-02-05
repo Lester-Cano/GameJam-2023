@@ -168,7 +168,7 @@ public class Mov1_1 : MonoBehaviour
 
     public void Encender()
     {
-        Debug.Log($"Encender >> {gameObject.name}");
+        //Debug.Log($"Encender >> {gameObject.name}");
         StartCoroutine(IniciarJuego());
     }
 

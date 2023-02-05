@@ -40,7 +40,7 @@ public class ControladorPuntos : MonoBehaviour
     public void FinalPartida()
     {
         PlayerPrefs.SetFloat("Temporal Points", uiclock.timeCooldownEvent);
-        hg.ReviewData();
+        //hg.ReviewData();
     }   
         
 

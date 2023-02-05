@@ -205,13 +205,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782263204}
     m_Modifications:
+    - target: {fileID: 2488078972179715308, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559192874471215065, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683684804708901392, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769654498197379416, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347135629549318038, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048263704250550187, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058598645832534836, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6644294606100812679, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
       propertyPath: m_Name
       value: Pinchos
       objectReference: {fileID: 0}
     - target: {fileID: 6644294606100812679, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644294606100812679, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6644294606100819064, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
       propertyPath: m_RootOrder
@@ -257,7 +289,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7562089151800656780, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937088581484137022, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 10451556722480702, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
 --- !u!1 &4188315439964985453 stripped
 GameObject:

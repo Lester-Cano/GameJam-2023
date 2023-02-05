@@ -70,7 +70,7 @@ public class PlayerLifeCheck : MonoBehaviour
         pMH.dead = true;
 
     }
-
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Dead")
@@ -78,7 +78,7 @@ public class PlayerLifeCheck : MonoBehaviour
             Debug.Log("muerase");
             Death();
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {

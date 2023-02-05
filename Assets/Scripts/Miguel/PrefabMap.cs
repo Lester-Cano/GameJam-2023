@@ -90,7 +90,7 @@ public class PrefabMap : MonoBehaviour
     }
     public void Encender()
     {
-        Debug.Log($"Encender >> {gameObject.name}");
+        //Debug.Log($"Encender >> {gameObject.name}");
         StartCoroutine(preOn());
     }
 }
