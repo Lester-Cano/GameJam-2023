@@ -39,7 +39,8 @@ public class BeginningGameScene : MonoBehaviour
         else if (timer % 60 > 11 && timer % 60 < 12)
         {
             fade.gameObject.SetActive(false);
-           // audioswitch.Play();
+            // audioswitch.Play();
+            Destroy(gameObject);
         }
     }
 
