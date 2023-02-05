@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLifeCheck : MonoBehaviour
 {
-    public bool grounded = false;
+    public bool grounded = false, is_death;
     public float groundedCheckDistance;
     float bufferCheckDistance;
 
@@ -54,6 +54,7 @@ public class PlayerLifeCheck : MonoBehaviour
 
     void Death()
     {
+        is_death = true;
         Rigidbody rgb = GetComponent<Rigidbody>();
         rgb.constraints = RigidbodyConstraints.FreezeAll;
 
