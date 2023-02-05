@@ -20,6 +20,9 @@ public class PlayLightSwitch : MonoBehaviour
         if (BringBool.TransitionBool)
         {
             Identificadorsfx.SetActive(true);
+        }
+        else {
+            Identificadorsfx.SetActive(false);
 
         }
     }
