@@ -54,10 +54,10 @@ public class PlayerLifeCheck : MonoBehaviour
 
     void Death()
     {
-
+/*
         ControladorPuntos cp = FindObjectOfType<ControladorPuntos>();
 
-        cp.FinalPartida();
+        cp.FinalPartida();*/
 
         is_death = true;
         Rigidbody rgb = GetComponent<Rigidbody>();
@@ -66,8 +66,10 @@ public class PlayerLifeCheck : MonoBehaviour
         bool Dead = animator.GetBool("Dead");
         animator.SetBool("Dead", true);
 
+        
         PlayerMovementHybrid pMH = GetComponent<PlayerMovementHybrid>();
         pMH.dead = true;
+        
 
     }
     /*

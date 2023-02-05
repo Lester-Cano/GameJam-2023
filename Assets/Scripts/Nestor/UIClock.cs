@@ -27,8 +27,8 @@ public class UIClock : MonoBehaviour
         UpdateTimerDisplay(TimeScore);
         if (timer23 == 0)
         {
-            MapEvent();
-            timer23= 0;
+            //MapEvent();
+            ResetTimer();
         }
     }
 

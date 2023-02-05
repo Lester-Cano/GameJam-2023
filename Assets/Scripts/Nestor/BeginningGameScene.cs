@@ -13,7 +13,7 @@ public class BeginningGameScene : MonoBehaviour
 
     public bool TransitionBool;
 
-    float timer = 0f;
+    public float timer = 0f;
 
     public AudioSource audioswitch;
 
@@ -27,31 +27,28 @@ public class BeginningGameScene : MonoBehaviour
     private void Update()
     {
 
-        if (timer % 60 < 14)
+        if (timer < 50)
         {
             timer += Time.deltaTime;
         }
 
 
-        if (timer % 60 > 5 && timer % 60 < 7)
+        if (timer > 23 && timer < 23.5)
         {
             phase1();
         }
-        else if (timer % 60 > 7 && timer % 60 < 10)
+        else if (timer > 24 && timer < 47)
         {
             phase2();
         }
-        else if (timer % 60 > 10 && timer % 60 < 11)
+        else if (timer > 47 && timer < 47.5)
         {
             phase3();
         }
-        else if (timer % 60 > 11 && timer % 60 < 12)
+        else if (timer > 48 && timer < 49)
         {
             fade.gameObject.SetActive(false);
             TransitionBool= false;
-          //  playLightSFX();
-            clock.gameObject.SetActive(true);
-            
         }
     }
 
@@ -61,14 +58,12 @@ public class BeginningGameScene : MonoBehaviour
         canvasfirst1.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox2;
         TransitionBool = true;
-        //playLightSFX();
     }
     void phase2()
     {
         canvasfirst2.gameObject.SetActive(true);
         fade.gameObject.SetActive(false);
         TransitionBool= false;
-        //playBGMusic();
     }
 
     void phase3()
@@ -78,6 +73,5 @@ public class BeginningGameScene : MonoBehaviour
         canvasfirst3.gameObject.SetActive(true);
         canvasfirst2.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox3;
-        //playLightSFX();
     }
 }
