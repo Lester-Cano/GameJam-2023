@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerLifeCheck : MonoBehaviour
 {
     public bool grounded = false;
-    public float groundedCheckDistance, deadGround = 0;
+    public float groundedCheckDistance;
     float bufferCheckDistance;
 
 
@@ -23,9 +23,6 @@ public class PlayerLifeCheck : MonoBehaviour
 
         if (isGrounded() == false)
         {
-            Debug.Log(" not grounded");
-            deadGround += Time.deltaTime;
-
             bool Falling = animator.GetBool("Grounded");
             animator.SetBool("Grounded", false);
 
@@ -46,7 +43,6 @@ public class PlayerLifeCheck : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, 0.3f))
         {
-            deadGround = 0;
             return true;
         }
         else
@@ -69,10 +65,25 @@ public class PlayerLifeCheck : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("colision");
+
+        if (collision.gameObject.tag == "Dead")
+        {
+            Debug.Log("muerase");
+            Death();
+        }
+    }
+
+    private void OnCollisionEnter(Collider other)
+    {
+
+        Debug.Log("triger");
+
         if (other.tag=="Dead")
         {
+            Debug.Log("muerase");
             Death();
         }
     }
