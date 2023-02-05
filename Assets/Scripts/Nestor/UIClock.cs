@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class UIClock : MonoBehaviour
 {
-    public float timeCooldownEvent = 0f;
+    public float timeCooldownEvent = 23f;
 
     public float timer23 = 23, TimeScore;
 
@@ -34,7 +34,7 @@ public class UIClock : MonoBehaviour
 
     void ResetTimer()
     {
-        timer23 -= timeCooldownEvent;
+        timer23 = timeCooldownEvent;
     }
 
     void UpdateTimerDisplay23(float time)
