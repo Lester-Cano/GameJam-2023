@@ -41,14 +41,14 @@ public class Mov1_1 : MonoBehaviour
 
     [Header("Apartado de Daño")]
 
-    public GameObject prePuas;
+    public GameObject MaloPrefOn;
+    public GameObject MalooPrefOff;
+
+
     public GameObject Puas;
-    public GameObject partiPuas;
     public float TiempoEspamPuas;
 
-    public GameObject preRaices;
     public GameObject Raices;
-    public GameObject partiRaiz;
     public float TiempoEspamRaices;
 
     public GameObject preBarril;
@@ -56,12 +56,23 @@ public class Mov1_1 : MonoBehaviour
     public GameObject partiBarril;
     public float TiempoEspamBarril;
 
+
+    [Header("Bueno")]
+
+    public GameObject BuenoPrefOn;
+    public GameObject BuenoPrefOff;
+
+
+
     // Start is called before the first frame update
     void Start()  
     {
-        RandomMap1 = Random.RandomRange(0, PuntoInstlvl1.Length);
+        
         RandomMap2 = Random.RandomRange(0, Level2AlL.Length);
         RandomMap3 = Random.RandomRange(0, Level3All.Length);
+
+        StartCoroutine(RandomLvl1());
+
 
     }
 
@@ -84,9 +95,10 @@ public class Mov1_1 : MonoBehaviour
             activarlvl3 = false;
         }
 
-
-
-
+  
+           
+        
+        
     }
 
     IEnumerator generarlvl1()
@@ -146,20 +158,30 @@ public class Mov1_1 : MonoBehaviour
 
     IEnumerator RandomLvl1()
     {
+        print("entro random pinchos");
         yield return new WaitForSeconds(tiempoSpamLvl1);
         for (int i = 0; i < cantidadPantalla1; i++)
         {
-            Instantiate(Puas, PuntoInstlvl1[i].transform.position, PuntoInstlvl1[i].transform.rotation);
+            RandomMap1 = Random.RandomRange(0, PuntoInstlvl1.Length);
+            Instantiate(Puas, PuntoInstlvl1[RandomMap1].transform.position, PuntoInstlvl1[RandomMap1].transform.rotation);
+            
         }
         yield return new WaitForSeconds(tiempoSpamLvl1);
-        if (!evento)
-         StartCoroutine(RandomLvl1());       
+        if (!evento) 
+        {
+        
+            StartCoroutine(RandomLvl1());
+        }
+        else if (evento)
+        {
+            
+        }
 
     }
 
     
 
-    /*------------------------------Apartado daño--------------------------------*/
+    /*------------------------------Apartado daño--------------------------------
 
     IEnumerator ActPuas()
     {
@@ -184,6 +206,6 @@ public class Mov1_1 : MonoBehaviour
         Instantiate(partiBarril, transform.position, transform.rotation);
         Instantiate(Barril, transform.position, transform.rotation);
     }
-
+    */
 }
 

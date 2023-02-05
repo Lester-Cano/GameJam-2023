@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8990358843025170033}
   - component: {fileID: 10451556722480702}
+  - component: {fileID: 5314698057994367563}
   m_Layer: 0
   m_Name: "Da\xF1o"
   m_TagString: Untagged
@@ -55,6 +56,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &5314698057994367563
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2488078972179715308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 821f0847ff823224a9a7365928c6c124, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6644294605489943455
 GameObject:
   m_ObjectHideFlags: 0
