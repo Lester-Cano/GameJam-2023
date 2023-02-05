@@ -95,7 +95,7 @@ public class Mov1_1 : MonoBehaviour
          
             yield return new WaitForSeconds(TimeAnimEspera);
         }
-        cantidadPantalla += 2;
+        //cantidadPantalla += 2;
     }
     IEnumerator generarlvl3()
     {

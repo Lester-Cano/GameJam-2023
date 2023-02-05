@@ -46,15 +46,21 @@ public class BeginningGameScene : MonoBehaviour
         else if (timer > 24 && timer < 47)
         {
             phase2();
+            if (!entera2)
+            {
+                entre2();
+            }
         }
         else if (timer > 47 && timer < 47.5)
         {
             phase3C();
+            
         }
         else if (timer > 48 && timer < 48.5)
         {
             fade.gameObject.SetActive(false);
-            TransitionBool= false;
+            TransitionBool = false;
+          
         }
     }
 
@@ -65,37 +71,47 @@ public class BeginningGameScene : MonoBehaviour
         RenderSettings.skybox = Skybox2;
         TransitionBool = true;
         //playLightSFX();     
-        main.tiempoSpamLvl = 2;
-        main.cantidadPantalla = 10;
 
     }
     void phase2()
     {
         canvasfirst2.gameObject.SetActive(true);
         fade.gameObject.SetActive(false);
-        TransitionBool= false;
-        //playBGMusic();
-        main.activarlvl2 = true;
-        main.tiempoSpamLvl = 1.5f;
-        main.cantidadPantalla = 26;
+        TransitionBool = false;
+        //playBGMusic();     
 
     }
 
     void phase3C()
     {
         fade.gameObject.SetActive(true);
-        TransitionBool= true;
+        TransitionBool = true;
         canvasfirst3.gameObject.SetActive(true);
         canvasfirst2.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox3;
-        //playLightSFX();
-        main.activarlvl3 = true;
-        main.tiempoSpamLvl = 1f;
-        main.cantidadPantalla = 50;
+        //playLightSFX();      
+        if (!entera3)
+        {
+            entre2();
+        }
+    }
+    public bool entera2 = false;
+    public bool entera3 = false;
+
+
+    public void entre2() 
+    {
+        main.activarlvl2 = true;
+        main.tiempoSpamLvl = 1.9f;
+        main.cantidadPantalla = 26;
+        entera2= true;
     }
 
-
-
-
-
+    public void entre3()
+    {
+        main.activarlvl3 = true;
+        main.tiempoSpamLvl = 1.6f;
+        main.cantidadPantalla = 50;
+        entera3= true;
+    }
 }
