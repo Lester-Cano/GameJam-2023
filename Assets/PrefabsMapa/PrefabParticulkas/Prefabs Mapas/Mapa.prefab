@@ -81,15 +81,16 @@ MonoBehaviour:
   MatBase: {fileID: 0}
   main: {fileID: 0}
   MaloPrefOn: {fileID: 3026420174170619816}
-  MalooPrefOff: {fileID: 5792750419017256915}
+  MalooPrefOff: {fileID: 3215814915543762630}
   BuenoPrefOn: {fileID: 1797366179034863088}
   BuenoPrefOff: {fileID: 5792750419017256915}
   Puas: {fileID: 4188315439964985453}
-  TiempoEspamPuas: 3
-  TimeAnimEspera: 0
+  TiempoEspamPuas: 2
+  TimeAnimEspera: 2
   tiempoSpamLvl1: 1
   tiempoSpamLvl2: 1
   tiempoSpamLvl3: 1
+  isActive: 0
 --- !u!1001 &7361876922754774639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +186,11 @@ Transform:
 --- !u!1 &3026420174170619816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5488380598847424967, guid: 8f48f63dfb0422045a38475bba4ba05d, type: 3}
+  m_PrefabInstance: {fileID: 7361876922754774639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3215814915543762630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5371240396633551017, guid: 8f48f63dfb0422045a38475bba4ba05d, type: 3}
   m_PrefabInstance: {fileID: 7361876922754774639}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5792750419017256915 stripped
