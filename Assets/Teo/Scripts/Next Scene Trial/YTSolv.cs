@@ -23,7 +23,7 @@ public class YTSolv : MonoBehaviour
 
 
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex+1);
+        SceneManager.LoadScene("GameplayScene");
 
 
 

@@ -14,6 +14,10 @@ public class ChangeAudio : MonoBehaviour
         {
             phm = GameObject.FindObjectOfType<PlayerMovementHybrid>().GetComponent<PlayerMovementHybrid>();
         }
+        else if (phm == null)
+        {
+            return;
+        }
     }
 
     private void Update()

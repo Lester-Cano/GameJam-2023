@@ -64,7 +64,7 @@ public class BeginningGameScene : MonoBehaviour
         canvasfirst1.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox2;
         TransitionBool = true;
-        //playLightSFX();
+        //playLightSFX();     
         main.tiempoSpamLvl = 2;
         main.cantidadPantalla = 10;
 
@@ -75,6 +75,7 @@ public class BeginningGameScene : MonoBehaviour
         fade.gameObject.SetActive(false);
         TransitionBool= false;
         //playBGMusic();
+        main.activarlvl2 = true;
         main.tiempoSpamLvl = 1.5f;
         main.cantidadPantalla = 26;
 
@@ -88,6 +89,7 @@ public class BeginningGameScene : MonoBehaviour
         canvasfirst2.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox3;
         //playLightSFX();
+        main.activarlvl3 = true;
         main.tiempoSpamLvl = 1f;
         main.cantidadPantalla = 50;
     }
