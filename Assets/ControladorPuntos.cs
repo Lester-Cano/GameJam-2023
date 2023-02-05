@@ -9,11 +9,11 @@ public class ControladorPuntos : MonoBehaviour
 
     UIClock uiclock;
 
+    [SerializeField]
+    Highest hg;
+
     private void Awake()
     {
-
-        
-
         if (ControladorPuntos.Instance == null)
         {
             ControladorPuntos.Instance = this;
@@ -28,8 +28,8 @@ public class ControladorPuntos : MonoBehaviour
 
     private void Start()
     {
+        hg = GameObject.FindObjectOfType<Highest>();
         uiclock = GetComponent<UIClock>();
-        PlayerPrefs.SetFloat("Temporal Points", 0);
     }
 
     private void Update()
@@ -39,15 +39,10 @@ public class ControladorPuntos : MonoBehaviour
 
     public void FinalPartida()
     {
-        
-
         PlayerPrefs.SetFloat("Temporal Points", uiclock.timeCooldownEvent);
-
-        Highest hg = GameObject.FindObjectOfType<Highest>();
         hg.ReviewData();
-
-    }
-
+    }   
+        
 
 }
 

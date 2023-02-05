@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChangeAudio : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class ChangeAudio : MonoBehaviour
     PlayerMovementHybrid phm;
     private void Start()
     {
-        phm = GameObject.FindObjectOfType<PlayerMovementHybrid>().GetComponent<PlayerMovementHybrid>();
+        if (SceneManager.sceneCount != 0)
+        {
+            phm = GameObject.FindObjectOfType<PlayerMovementHybrid>().GetComponent<PlayerMovementHybrid>();
+        }
     }
 
     private void Update()
