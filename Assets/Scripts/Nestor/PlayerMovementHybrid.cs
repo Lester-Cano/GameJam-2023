@@ -10,13 +10,16 @@ using UnityEngine.Timeline;
 
 public class PlayerMovementHybrid : MonoBehaviour
 {
-
+    public AudioSource AudiodePasos;
+    ChangeAudio changeAudio;
     PlayerInput playerInput;
+    public float velocidadNormalizada;
+    public InputActionProperty movimiento;
 
     Vector2 currentMovementInput;
     Vector3 currentMovement;
     Vector3 startPosition;
-    [SerializeField] bool isMovementPressed, isDashing, dashAvailable = true, dashCool;
+    [SerializeField] public bool isMovementPressed, isDashing, dashAvailable = true, dashCool;
 
     [SerializeField] float velocity, elapsedTime = 0f , dashDuration, dashCooldown;
     [SerializeField] public Vector3 pos, posint;
@@ -28,6 +31,8 @@ public class PlayerMovementHybrid : MonoBehaviour
 
     void Awake()
     {
+        changeAudio = GetComponent<ChangeAudio>();
+        
         playerInput = new PlayerInput();
 
         playerInput.CharacterControls.Movement.started += OnMovementInput;
@@ -37,6 +42,7 @@ public class PlayerMovementHybrid : MonoBehaviour
         pos = transform.position;
 
         animator = GetComponentInChildren<Animator>();
+        movimiento.action.Enable();
     }
 
     void OnMovementInput(InputAction.CallbackContext context)
@@ -86,6 +92,8 @@ public class PlayerMovementHybrid : MonoBehaviour
 
     void Update()
     {
+        velocidadNormalizada = Mathf.Lerp(velocidadNormalizada, movimiento.action.ReadValue<Vector2>().magnitude,0.2f);
+        AudiodePasos.volume = velocidadNormalizada;
         HandleAnimation();
 
         if (isMovementPressed && !dead) { Move(); }
@@ -134,9 +142,12 @@ public class PlayerMovementHybrid : MonoBehaviour
     void Move()
     {
 
+        
         if ((currentMovement.x != 0 || currentMovement.z != 0) && !isDashing)
         {
             pos += new Vector3(currentMovement.x, 0, currentMovement.z) * velocity * Time.deltaTime;
+            //changeAudio.Switcheroo();
+
         }
 
         //posint.x = Mathf.Floor(pos.x);
@@ -145,6 +156,7 @@ public class PlayerMovementHybrid : MonoBehaviour
        // Debug.Log(currentMovement);
        
         transform.position = pos;
+
         CheckRotation();
     }
 
