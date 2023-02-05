@@ -21,6 +21,8 @@ public class PlayerMovementHybrid : MonoBehaviour
     [SerializeField] float velocity, elapsedTime = 0f , dashDuration, dashCooldown;
     [SerializeField] Vector3 pos, posint;
 
+    public bool dead = false;
+
     Animator animator;
 
 
@@ -86,8 +88,8 @@ public class PlayerMovementHybrid : MonoBehaviour
     {
         HandleAnimation();
 
-        if (isMovementPressed) { Move(); }
-        if (Input.GetKeyDown(KeyCode.F) && dashAvailable && !isDashing) { Dash(); }
+        if (isMovementPressed && !dead) { Move(); }
+        if (Input.GetKeyDown(KeyCode.F) && dashAvailable && !isDashing && !dead) { Dash(); }
 
         if(isDashing) 
         {
@@ -139,7 +141,7 @@ public class PlayerMovementHybrid : MonoBehaviour
 
         //posint.x = Mathf.Floor(pos.x);
         //posint.z = Mathf.Floor(pos.z);
-        pos.y = 0.5f;
+        pos.y = transform.position.y;
        // Debug.Log(currentMovement);
        
         transform.position = pos;

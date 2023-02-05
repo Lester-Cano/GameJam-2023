@@ -59,6 +59,17 @@ public class PlayerLifeCheck : MonoBehaviour
 
     void Death()
     {
+        Rigidbody rgb = GetComponent<Rigidbody>();
+        rgb.constraints = RigidbodyConstraints.FreezeAll;
+
         bool Dead = animator.GetBool("Dead");
+        animator.SetBool("Dead", true);
+        
+        PlayerMovementHybrid pMH = GetComponent<PlayerMovementHybrid>();
+        pMH.dead = true;
+
+        
+        
+
     }
 }
