@@ -65,9 +65,9 @@ public class Mov1_1 : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()  
+    void Start()
     {
-        
+
         RandomMap2 = Random.RandomRange(0, Level2AlL.Length);
         RandomMap3 = Random.RandomRange(0, Level3All.Length);
 
@@ -94,11 +94,6 @@ public class Mov1_1 : MonoBehaviour
             SumarLvl3();
             activarlvl3 = false;
         }
-
-  
-           
-        
-        
     }
 
     IEnumerator generarlvl1()
@@ -149,11 +144,11 @@ public class Mov1_1 : MonoBehaviour
     }
 
 
-    public void PrimerNivel() 
+    public void PrimerNivel()
     {
-       
 
-    
+
+
     }
 
     IEnumerator RandomLvl1()
@@ -162,25 +157,35 @@ public class Mov1_1 : MonoBehaviour
         yield return new WaitForSeconds(tiempoSpamLvl1);
         for (int i = 0; i < cantidadPantalla1; i++)
         {
+
+
+
             RandomMap1 = Random.RandomRange(0, PuntoInstlvl1.Length);
+
             Instantiate(Puas, PuntoInstlvl1[RandomMap1].transform.position, PuntoInstlvl1[RandomMap1].transform.rotation);
-            
+        
+
         }
         yield return new WaitForSeconds(tiempoSpamLvl1);
-        if (!evento) 
+        if (!evento)
         {
-        
             StartCoroutine(RandomLvl1());
         }
         else if (evento)
         {
-            
+
         }
 
     }
 
-    
 
+    IEnumerable Desactivar(GameObject[] Obj, int NUM) 
+    {
+        yield return new WaitForSeconds(1);
+
+        Obj[NUM].SetActive(false);
+        
+    }
     /*------------------------------Apartado daño--------------------------------
 
     IEnumerator ActPuas()
