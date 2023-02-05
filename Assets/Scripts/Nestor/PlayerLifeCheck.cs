@@ -67,8 +67,6 @@ public class PlayerLifeCheck : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("colision");
-
         if (collision.gameObject.tag == "Dead")
         {
             Debug.Log("muerase");
