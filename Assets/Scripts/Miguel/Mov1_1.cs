@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class Mov1_1 : MonoBehaviour
 {
 
@@ -15,7 +16,14 @@ public class Mov1_1 : MonoBehaviour
     public GameObject[] Level3All;
 
 
-    [Header("Encender Lvl")]
+
+    [Header("Listas")]
+
+    public List<GameObject> ObjetosCompletos;
+
+    public bool evento = false;
+
+
     public bool activarlvl1 = false;
     public bool activarlvl2 = false;
     public bool activarlvl3 = false;
@@ -37,41 +45,14 @@ public class Mov1_1 : MonoBehaviour
     public int cantidadPantalla2;
     public int cantidadPantalla3;
 
-    public bool evento;
-
-    [Header("Apartado de Daño")]
-
-    public GameObject MaloPrefOn;
-    public GameObject MalooPrefOff;
 
 
-    public GameObject Puas;
-    public float TiempoEspamPuas;
-
-    public GameObject Raices;
-    public float TiempoEspamRaices;
-
-    public GameObject preBarril;
-    public GameObject Barril;
-    public GameObject partiBarril;
-    public float TiempoEspamBarril;
-
-
-    [Header("Bueno")]
-
-    public GameObject BuenoPrefOn;
-    public GameObject BuenoPrefOff;
-
-
+  
+  
 
     // Start is called before the first frame update
     void Start()
-    {
-
-        RandomMap2 = Random.RandomRange(0, Level2AlL.Length);
-        RandomMap3 = Random.RandomRange(0, Level3All.Length);
-
-        StartCoroutine(RandomLvl1());
+    { 
 
 
     }
@@ -101,8 +82,9 @@ public class Mov1_1 : MonoBehaviour
         yield return new WaitForSeconds(TimeAnimEspera);
         for (int i = 0; i < PuntoInstlvl1.Length; i++)
         {
-
+            
             Instantiate(PrefabMapa, PuntoInstlvl1[i].transform.position, PuntoInstlvl1[i].transform.rotation);
+            ObjetosCompletos.Add(PrefabMapa);
             yield return new WaitForSeconds(TimeAnimEspera);
         }
     }
@@ -113,6 +95,7 @@ public class Mov1_1 : MonoBehaviour
         {
 
             Instantiate(PrefabMapa, PuntoInstlvl2[i].transform.position, PuntoInstlvl2[i].transform.rotation);
+            ObjetosCompletos.Add(PrefabMapa);
             yield return new WaitForSeconds(TimeAnimEspera);
         }
     }
@@ -123,6 +106,7 @@ public class Mov1_1 : MonoBehaviour
         {
 
             Instantiate(PrefabMapa, PuntoInstlvl3[i].transform.position, PuntoInstlvl3[i].transform.rotation);
+            ObjetosCompletos.Add(PrefabMapa);
             yield return new WaitForSeconds(TimeAnimEspera);
         }
     }
@@ -144,73 +128,9 @@ public class Mov1_1 : MonoBehaviour
     }
 
 
-    public void PrimerNivel()
+    public void Seleccion() 
     {
-
-
-
+       
     }
-
-    IEnumerator RandomLvl1()
-    {
-        print("entro random pinchos");
-        yield return new WaitForSeconds(tiempoSpamLvl1);
-        for (int i = 0; i < cantidadPantalla1; i++)
-        {
-
-
-
-            RandomMap1 = Random.RandomRange(0, PuntoInstlvl1.Length);
-
-            Instantiate(Puas, PuntoInstlvl1[RandomMap1].transform.position, PuntoInstlvl1[RandomMap1].transform.rotation);
-        
-
-        }
-        yield return new WaitForSeconds(tiempoSpamLvl1);
-        if (!evento)
-        {
-            StartCoroutine(RandomLvl1());
-        }
-        else if (evento)
-        {
-
-        }
-
-    }
-
-
-    IEnumerable Desactivar(GameObject[] Obj, int NUM) 
-    {
-        yield return new WaitForSeconds(1);
-
-        Obj[NUM].SetActive(false);
-        
-    }
-    /*------------------------------Apartado daño--------------------------------
-
-    IEnumerator ActPuas()
-    {
-        Instantiate(prePuas, transform.position, transform.rotation);
-        yield return new WaitForSeconds(TiempoEspamPuas);
-        Instantiate(partiPuas, transform.position, transform.rotation);
-        Instantiate(Puas, transform.position, transform.rotation);
-
-    }
-    IEnumerator ActRaices()
-    {
-        Instantiate(preRaices, transform.position, transform.rotation);
-        yield return new WaitForSeconds(TiempoEspamRaices);
-        Instantiate(partiRaiz, transform.position, transform.rotation);
-        Instantiate(Raices, transform.position, transform.rotation);
-
-    }
-    IEnumerator ActBarril()
-    {
-        Instantiate(preBarril, transform.position, transform.rotation);
-        yield return new WaitForSeconds(TiempoEspamBarril);
-        Instantiate(partiBarril, transform.position, transform.rotation);
-        Instantiate(Barril, transform.position, transform.rotation);
-    }
-    */
 }
 
