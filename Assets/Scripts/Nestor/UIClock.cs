@@ -8,9 +8,9 @@ public class UIClock : MonoBehaviour
 {
     float timeDuration = 0f;
 
-    float timer;
+    float timer23 = 23, normalTimer;
 
-    [SerializeField] TextMeshProUGUI clock;
+    [SerializeField] TextMeshProUGUI clock23, clockFM, clockSM, clockFS, clockSS;
 
 
     void Start()
@@ -21,27 +21,40 @@ public class UIClock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        UpdateTimerDisplay(timer);
-        if (timer > 0)
+        normalTimer += Time.deltaTime;
+        timer23 -= Time.deltaTime;
+        UpdateTimerDisplay23(timer23);
+        UpdateTimerDisplay(normalTimer);
+        if (timer23 == 0)
         {
             MapEvent();
-            timer= 0;
+            timer23= 0;
         }
     }
 
     void ResetTimer()
     {
-        timer -= timeDuration;
+        timer23 -= timeDuration;
     }
 
-    void UpdateTimerDisplay(float time)
+    void UpdateTimerDisplay23(float time)
     {
         float minutes = Mathf.Floor(time / 60);
         float seconds = Mathf.Floor(time % 60);
 
         string currentTime = seconds.ToString();
-        clock.text = currentTime.ToString();
+        clock23.text = currentTime.ToString();
+    }
+    void UpdateTimerDisplay(float time)
+    {
+        float minutes = Mathf.Floor(time / 60);
+        float seconds = Mathf.Floor(time % 60);
+
+        string currentTime = string.Format("{00:00}{1:00}", minutes, seconds);
+        clockFM.text = currentTime[0].ToString();
+        clockSM.text = currentTime[1].ToString();
+        clockFS.text = currentTime[2].ToString();
+        clockSS.text = currentTime[3].ToString();
     }
 
     void MapEvent()
