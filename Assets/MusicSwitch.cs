@@ -27,9 +27,9 @@ public class MusicSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        /*timer += Time.deltaTime;
 
-        if(timer >= 0 && timer < 24)
+        if(timer >= 7 && timer < 24)
         {
         Identificadormusic.SetActive(true);
         }
@@ -39,6 +39,13 @@ public class MusicSwitch : MonoBehaviour
         }
         else if (timer >= 68)
         {
+            DistortedTrackOn.SetActive(true);
+        }
+        */
+
+        if (BringBool.TransitionBool)
+        {
+            Identificadormusic.SetActive(false);
             DistortedTrackOn.SetActive(true);
         }
 

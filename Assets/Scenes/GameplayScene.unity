@@ -9216,7 +9216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Identificadormusic: {fileID: 1780983539}
   MainTrackCheck: {fileID: 1362819932}
-  DistortedTrackOn: {fileID: 0}
+  DistortedTrackOn: {fileID: 931435799}
 --- !u!4 &1471730924
 Transform:
   m_ObjectHideFlags: 0
