@@ -15,6 +15,7 @@ public class PlayerMovementHybrid : MonoBehaviour
      PlayerInput playerInput;
     public float velocidadNormalizada;
     public InputActionProperty movimiento;
+    private  SFXPlaying Dashsfx;
 
     Vector2 currentMovementInput;
     Vector3 currentMovement;
@@ -31,7 +32,7 @@ public class PlayerMovementHybrid : MonoBehaviour
 
     void Awake()
     {
-        
+        Dashsfx = FindObjectOfType<SFXPlaying>();
         playerInput = new PlayerInput();
 
         playerInput.CharacterControls.Movement.started += OnMovementInput;
@@ -164,7 +165,10 @@ public class PlayerMovementHybrid : MonoBehaviour
     {
         startPosition = transform.position;
         isDashing = true;
-       
+        if(Dashsfx != null)
+        {
+            Dashsfx.PlayDashSFX();
+        }
         dashAvailable = false;
     }
 
