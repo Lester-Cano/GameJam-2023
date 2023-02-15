@@ -34,7 +34,7 @@ public class ControladorPuntos : MonoBehaviour
 
     private void Update()
     {
-        cantidadPuntos = uiclock.TimeScore;
+        cantidadPuntos = uiclock.timeScore;
     }
 
     public void FinalPartida()

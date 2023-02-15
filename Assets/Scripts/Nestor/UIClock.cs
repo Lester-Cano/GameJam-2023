@@ -8,34 +8,28 @@ public class UIClock : MonoBehaviour
 {
     public float timeCooldownEvent = 23f;
 
-    public float timer23 = 23, TimeScore;
+    public float timer23, timeScore;
 
     [SerializeField] TextMeshProUGUI clock23, clockFM, clockSM, clockFS, clockSS;
 
 
     void Start()
     {
-        
+        timer23 = 0;
+        timeScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        TimeScore += Time.deltaTime;
-        timer23 -= Time.deltaTime;
+        timeScore += Time.deltaTime;
+        timer23 += Time.deltaTime;
         UpdateTimerDisplay23(timer23);
-        UpdateTimerDisplay(TimeScore);
-        if (timer23 == 0)
-        {
-            //MapEvent();
-            ResetTimer();
-        }
+        UpdateTimerDisplay(timeScore);
+        
     }
 
-    void ResetTimer()
-    {
-        timer23 = timeCooldownEvent;
-    }
+    
 
     void UpdateTimerDisplay23(float time)
     {
@@ -44,6 +38,12 @@ public class UIClock : MonoBehaviour
 
         string currentTime = seconds.ToString();
         clock23.text = currentTime.ToString();
+
+        if (seconds >= 23)
+        {
+            //EVENTO DEL 23
+        }
+
     }
     void UpdateTimerDisplay(float time)
     {
@@ -55,6 +55,12 @@ public class UIClock : MonoBehaviour
         clockSM.text = currentTime[1].ToString();
         clockFS.text = currentTime[2].ToString();
         clockSS.text = currentTime[3].ToString();
+
+        if (minutes >= 1)
+        {
+            //EVENTO DE PUNTAJE
+        }
+
     }
 
     void MapEvent()
