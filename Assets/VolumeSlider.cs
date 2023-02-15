@@ -2,30 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class VolumeSlider : MonoBehaviour
 {
-    [SerializeField] Slider volumeSlider;
+    [SerializeField] Slider volumeSliderMusic,volumeSliderSFX;
+    public AudioMixerGroup SFX, Music;
+    
     // Start is called before the first frame update
-    void Start()
+   /* void Start()
     {
         if (!PlayerPrefs.HasKey("musicVolume")) 
         {
             PlayerPrefs.SetFloat("musicVolume",1);
-            Load();
+            //Load();
         } 
         else
         {
-            Load();
+            //Load();
         }
     }
-
-    public void ChangeVolume()
+   */
+   
+    public void ChangeAudioMixer()
     {
-        AudioListener.volume = volumeSlider.value;
-        Save();
-    }
+        SFX.audioMixer.SetFloat("SFXVolume", volumeSliderSFX.value);
+        Music.audioMixer.SetFloat("MusicVolume", volumeSliderMusic.value);
 
+       // Save();
+    }
+/*
     private void Load()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
@@ -41,4 +47,5 @@ public class VolumeSlider : MonoBehaviour
     {
         
     }
+*/
 }

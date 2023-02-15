@@ -19,6 +19,8 @@ public class BeginningGameScene : MonoBehaviour
 
     public Mov1_1 main;
 
+    public bool phasetwoMusicON;
+
     private void Awake()
     {
         main = FindObjectOfType<Mov1_1>();
@@ -78,6 +80,9 @@ public class BeginningGameScene : MonoBehaviour
         canvasfirst2.gameObject.SetActive(true);
         fade.gameObject.SetActive(false);
         TransitionBool = false;
+
+
+
         //playBGMusic();     
 
     }
@@ -113,5 +118,6 @@ public class BeginningGameScene : MonoBehaviour
         main.tiempoSpamLvl = 1.6f;
         main.cantidadPantalla = 50;
         entera3= true;
+        phasetwoMusicON = true;
     }
 }
