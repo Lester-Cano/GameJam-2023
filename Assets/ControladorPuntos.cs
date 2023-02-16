@@ -20,8 +20,6 @@ public class ControladorPuntos : MonoBehaviour
         if (ControladorPuntos.Instance == null)
         {
             ControladorPuntos.Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-
         }
         else
         {
