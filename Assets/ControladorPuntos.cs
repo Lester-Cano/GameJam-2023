@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControladorPuntos : MonoBehaviour
 {
     public static ControladorPuntos Instance;
-    [SerializeField] public float cantidadPuntos;
+    [SerializeField] public float cantidadPuntos = 0;
 
-    UIClock uiclock;
+    [SerializeField] TextMeshProUGUI scoreUI;
 
-    [SerializeField]
-    Highest hg;
+    [SerializeField] Highest hg;
+
+    
 
     private void Awake()
     {
@@ -28,20 +31,22 @@ public class ControladorPuntos : MonoBehaviour
 
     private void Start()
     {
-        hg = GameObject.FindObjectOfType<Highest>();
-        uiclock = GetComponent<UIClock>();
+        GameEvents.current.onScoreMinute += AddScore;
+        GameEvents.current.onPlayerDeath += SaveScore;
     }
 
-    private void Update()
+    public void AddScore()
     {
-        cantidadPuntos = uiclock.timeScore;
+        cantidadPuntos += 100;
+        scoreUI.text = cantidadPuntos.ToString();
     }
 
-    public void FinalPartida()
+    public void SaveScore()
     {
-        PlayerPrefs.SetFloat("Temporal Points", uiclock.timeCooldownEvent);
-        //hg.ReviewData();
-    }   
+        PlayerPrefs.SetFloat("Temporary Points", cantidadPuntos);
+    }
+
+     
         
 
 }

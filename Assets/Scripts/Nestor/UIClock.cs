@@ -12,21 +12,28 @@ public class UIClock : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI clock23, clockFM, clockSM, clockFS, clockSS;
 
+    bool protaAlive = true;
+
 
     void Start()
     {
+        protaAlive = true;
         timer23 = 0;
         timeScore = 0;
+        GameEvents.current.onPlayerDeath += GameOver;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeScore += Time.deltaTime;
-        timer23 += Time.deltaTime;
-        UpdateTimerDisplay23(timer23);
-        UpdateTimerDisplay(timeScore);
-        
+
+        if (protaAlive)
+        {
+            timeScore += Time.deltaTime;
+            timer23 += Time.deltaTime;
+            UpdateTimerDisplay23(timer23);
+            UpdateTimerDisplay(timeScore);
+        }
     }
 
     
@@ -41,7 +48,9 @@ public class UIClock : MonoBehaviour
 
         if (seconds >= 23)
         {
-            //EVENTO DEL 23
+            GameEvents.current.ChangeStage();
+            seconds -= 23;
+            timer23 = 0;
         }
 
     }
@@ -58,13 +67,21 @@ public class UIClock : MonoBehaviour
 
         if (minutes >= 1)
         {
-            //EVENTO DE PUNTAJE
+            GameEvents.current.ScoreMinute();
+            minutes -= 1;
+            seconds = 0;
+            timeScore = 0;
         }
 
     }
 
-    void MapEvent()
+    public void GameOver()
     {
-
+        protaAlive= false;
+        timeScore = 0;
+        timer23 = 0;
+        UpdateTimerDisplay23(timer23);
+        UpdateTimerDisplay(timeScore);
     }
+    
 }

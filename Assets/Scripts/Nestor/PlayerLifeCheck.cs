@@ -64,6 +64,8 @@ public class PlayerLifeCheck : MonoBehaviour
     void Death()
     {
 
+        GameEvents.current.PlayerDeath();
+
         is_death = true;
         Rigidbody rgb = GetComponent<Rigidbody>();
         rgb.constraints = RigidbodyConstraints.FreezeAll;

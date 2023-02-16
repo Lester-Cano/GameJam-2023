@@ -21,74 +21,66 @@ public class BeginningGameScene : MonoBehaviour
 
     public bool phasetwoMusicON;
 
+
+    //Stage Number
+    [SerializeField] int stage = 1;
+
+
     private void Awake()
     {
         main = FindObjectOfType<Mov1_1>();
     }
-    /* public void playLightSFX()
+
+
+    private void Start()
     {
-        audioswitch.Play();
+        GameEvents.current.onChangeStage += CheckStage;
     }
-    */
 
 
-    private void Update()
+    public void CheckStage()
     {
-
-        if (timer < 50)
+        if (stage == 1) 
         {
-            timer += Time.deltaTime;
+            Debug.Log("Stage 1");
+            StartCoroutine(phase1()); 
         }
-
-
-        if (timer > 23 && timer < 23.5)
+        else if (stage == 2) 
         {
-            phase1C();
+            StartCoroutine(phase2());
         }
-        else if (timer > 24 && timer < 47)
-        {
-            phase2();
-            if (!entera2)
-            {
-                entre2();
-            }
-        }
-        else if (timer > 47 && timer < 47.5)
-        {
-            phase3C();
-            
-        }
-        else if (timer > 48 && timer < 48.5)
-        {
-            fade.gameObject.SetActive(false);
-            TransitionBool = false;
-          
+        else if (stage == 3) 
+        { 
+            /*EVENTO DE CORUTINAAAAAA*/ 
         }
     }
 
-    void phase1C()
+    IEnumerator phase1()
     {
+
+        Debug.Log("Entro a corutina");
+
         fade.gameObject.SetActive(true);
         canvasfirst1.gameObject.SetActive(false);
-        RenderSettings.skybox = Skybox2;
         TransitionBool = true;
-        //playLightSFX();     
 
-    }
-    void phase2()
-    {
+        yield return new WaitForSeconds(1);
+
+        RenderSettings.skybox = Skybox2;
         canvasfirst2.gameObject.SetActive(true);
         fade.gameObject.SetActive(false);
         TransitionBool = false;
-
-
-
-        //playBGMusic();     
+        stage = 2;
+        if (!entera2)
+        {
+            entre2();
+        }
+        //playLightSFX();     
 
     }
-
-    void phase3C()
+    IEnumerator phase2()
     {
+
         fade.gameObject.SetActive(true);
         TransitionBool = true;
         canvasfirst3.gameObject.SetActive(true);
@@ -99,7 +91,17 @@ public class BeginningGameScene : MonoBehaviour
         {
             entre3();
         }
+
+        yield return new WaitForSeconds(1);
+
+        fade.gameObject.SetActive(false);
+        TransitionBool = false;
+        stage = 3;
+
+        //playBGMusic();     
+
     }
+
     public bool entera2 = false;
     public bool entera3 = false;
 
