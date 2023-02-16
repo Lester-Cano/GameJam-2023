@@ -5867,6 +5867,7 @@ MonoBehaviour:
   grounded: 0
   is_death: 0
   groundedCheckDistance: 0
+  lives: 0
   Canvasdeath: {fileID: 0}
 --- !u!54 &6889551279294575378
 Rigidbody:
@@ -5957,7 +5958,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 8400316137173014779, guid: e106cdbc57b5a3c4b9db016e7147cf83, type: 2}
   m_audioClip: {fileID: 8300000, guid: 852d6df8e656a9b4596df0d1320417b9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.497
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

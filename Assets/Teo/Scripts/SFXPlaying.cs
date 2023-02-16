@@ -29,7 +29,7 @@ public class SFXPlaying : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && PlayerReffDash.isDashing)
+     /*   if (Input.GetKeyDown(KeyCode.F) && PlayerReffDash.isDashing)
         {
             PlayDashSFX();
         }
@@ -39,6 +39,7 @@ public class SFXPlaying : MonoBehaviour
             PlayDieSFX();
 
         }
+     */
         
     }
 

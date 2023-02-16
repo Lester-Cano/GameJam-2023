@@ -11,12 +11,13 @@ public class PlayerLifeCheck : MonoBehaviour
     [SerializeField] Canvas Canvasdeath;
 
     Animator animator;
-
+    private SFXPlaying Deathsfx;
 
     void Start()
     {
         lives = 1;
         animator = GetComponentInChildren<Animator>();
+        Deathsfx = FindObjectOfType<SFXPlaying>();
     }
 
     private void FixedUpdate()
@@ -78,6 +79,12 @@ public class PlayerLifeCheck : MonoBehaviour
         pMH.dead = true;
 
         Canvasdeath.gameObject.SetActive(true);
+
+        if (Deathsfx != null)
+        {
+            Deathsfx.PlayDieSFX();
+        }
+
     }
     /*
     private void OnCollisionEnter(Collision collision)
