@@ -20,6 +20,9 @@ public class PrefabMap : MonoBehaviour
     public GameObject BuenoPrefOn;
     public GameObject BuenoPrefOff;
 
+
+    public GameObject[] Beneficios;
+
     [Header("Daños")]
 
     public GameObject Puas;
@@ -56,6 +59,8 @@ public class PrefabMap : MonoBehaviour
         BuenoPrefOff.SetActive(false);
 
         Puas.SetActive(false);
+        Beneficios[0].SetActive(false);
+        Beneficios[1].SetActive(false);
 
 
 
@@ -68,6 +73,7 @@ public class PrefabMap : MonoBehaviour
     // Update is called once per frame
     IEnumerator RandomLvl1()
     {
+        BeneficioActivo();
         isActive = true;
         MaloPrefOn.SetActive(true);
 
@@ -131,5 +137,30 @@ public class PrefabMap : MonoBehaviour
 
         isActive = true; 
 
+    }
+    public bool BuenoN = false;
+    public void BeneficioActivo() 
+    {
+       int Rand = Random.Range(0, 50);
+        print(Rand);
+        if (Rand >= 48)
+        {
+            if (!BuenoN)
+            {
+                StartCoroutine(SpamBueno());
+            }
+            
+        }
+    
+    }
+
+    public IEnumerator SpamBueno()
+    {   BuenoN= true;
+        int cual = Random.Range(0,Beneficios.Length);
+        print(cual);
+        Beneficios[cual].SetActive(true);
+        yield return new WaitForSeconds(5);
+        Beneficios[cual].SetActive(false);
+        BuenoN= false;
     }
 }

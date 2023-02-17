@@ -50,7 +50,8 @@ public class BeginningGameScene : MonoBehaviour
             StartCoroutine(phase2());
         }
         else if (stage == 3) 
-        { 
+        {
+            GameEvents.current.StageEvent();
             /*EVENTO DE CORUTINAAAAAA*/ 
         }
     }
@@ -109,16 +110,14 @@ public class BeginningGameScene : MonoBehaviour
     public void entre2() 
     {
         main.activarlvl2 = true;
-        main.tiempoSpamLvl = 1.9f;
-        main.cantidadPantalla = 26;
+        main.cantidadPantalla = 30;
         entera2= true;
     }
 
     public void entre3()
     {
-        main.activarlvl3 = true;
-        main.tiempoSpamLvl = 1.6f;
-        main.cantidadPantalla = 50;
+        main.activarlvl3 = true;    
+        main.cantidadPantalla = 60;
         entera3= true;
         phasetwoMusicON = true;
     }

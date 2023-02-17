@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7091101998225971917}
   - component: {fileID: 5997077045755161056}
   - component: {fileID: 2119918617507810965}
+  - component: {fileID: -424902256630348219}
   m_Layer: 0
   m_Name: Mario_Coin
   m_TagString: Untagged
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9789f40ccf0130e4986fb7adfaa24525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-424902256630348219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748343166039358232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f388f3a17e3ce549a698432194784a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10

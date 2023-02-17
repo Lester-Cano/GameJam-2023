@@ -17,7 +17,7 @@ public class GameEvents : MonoBehaviour
     public event Action onChangeStage;
     public event Action onScoreMinute;
     public event Action onPlayerDeath;
-
+    public event Action onStageEvent;
     public void ChangeStage()
     {
 
@@ -43,7 +43,13 @@ public class GameEvents : MonoBehaviour
             onPlayerDeath();
         }
     }
-
+    public void StageEvent() 
+    {
+        if (onStageEvent != null)
+        {
+            onStageEvent();
+        }
+    }
 
 
 }

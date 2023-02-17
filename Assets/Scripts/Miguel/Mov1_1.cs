@@ -51,8 +51,8 @@ public class Mov1_1 : MonoBehaviour
         ObjetosCompletos = new List<PrefabMap>();
         rnds = new List<int>();
         EventRnds = new List<int>();
-      
-            StartCoroutine(ActivarEvento());
+        GameEvents.current.onStageEvent += ActivarPatrones;
+            //StartCoroutine(ActivarEvento());
         
     }
 
@@ -269,6 +269,7 @@ public class Mov1_1 : MonoBehaviour
             esEvento = false;
         }
         print(radn);
+        StartCoroutine(ActivateRandomCubes());
     }
 
     private void SumarLvl1()
@@ -297,10 +298,14 @@ public class Mov1_1 : MonoBehaviour
         StartCoroutine(ActivarEvento());
     }
 
+
     public void ActivarRandom()
     {
         StartCoroutine(ActivateRandomCubes());
     }
+
+
+
     IEnumerator IniciarJuego() 
     {    
         yield return new WaitForSeconds(2);

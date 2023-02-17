@@ -1598,6 +1598,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39532605, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39532606, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 39532606, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.794
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463197191, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463197193, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.186
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463197193, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.819
+      objectReference: {fileID: 0}
     - target: {fileID: 252629880556366836, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
       propertyPath: m_Name
       value: Mapa
@@ -1649,6 +1673,10 @@ PrefabInstance:
     - target: {fileID: 1752232814369260893, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188315439964985453, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
@@ -2530,7 +2558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3525808735352689395, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
       propertyPath: esEvento
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3525808735352689395, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
       propertyPath: activarlvl1
@@ -2538,11 +2566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3525808735352689395, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
       propertyPath: activarlvl2
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3525808735352689395, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
       propertyPath: activarlvl3
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3525808735352689395, guid: 0e103adde034cd849aaa3d57976ae4cc, type: 3}
       propertyPath: LimiteEvents
