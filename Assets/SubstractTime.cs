@@ -12,6 +12,8 @@ public class SubstractTime : MonoBehaviour
     void Start()
     {
         clock = FindObjectOfType<UIClock>();
+        BoxCollider bc = GetComponent<BoxCollider>();
+        bc.isTrigger = true;
     }
 
     private void OnTriggerEnter(Collider other)

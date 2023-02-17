@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddPointsFromCoins : MonoBehaviour
 {
 
-    ControladorPuntos cp;
+    [SerializeField] ControladorPuntos cp;
 
     void Start()
     {
@@ -18,6 +18,7 @@ public class AddPointsFromCoins : MonoBehaviour
         {
             cp.cantidadPuntos += 50;
             cp.UpdatePointsDisplay();
+            gameObject.SetActive(false);
         }
     }
 }
