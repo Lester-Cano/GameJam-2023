@@ -5,7 +5,12 @@ using UnityEngine;
 public class ControladorPuntos : MonoBehaviour
 {
     public static ControladorPuntos Instance;
-    [SerializeField] public int cantidadPuntos;
+    [SerializeField] public float cantidadPuntos;
+
+    UIClock uiclock;
+
+    [SerializeField]
+    Highest hg;
 
     private void Awake()
     {
@@ -20,20 +25,24 @@ public class ControladorPuntos : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SumarPuntos(int puntos)
+
+    private void Start()
     {
-        cantidadPuntos += puntos;
+        hg = GameObject.FindObjectOfType<Highest>();
+        uiclock = GetComponent<UIClock>();
+    }
+
+    private void Update()
+    {
+        cantidadPuntos = uiclock.TimeScore;
     }
 
     public void FinalPartida()
     {
-        PlayerPrefs.SetInt ("Temporal Points",cantidadPuntos);
-        //Lllamr funcion
-        Highest hg = GameObject.FindObjectOfType<Highest>();
-        hg.ReviewData();
-
-    }
-
+        PlayerPrefs.SetFloat("Temporal Points", uiclock.timeCooldownEvent);
+        //hg.ReviewData();
+    }   
+        
 
 }
 

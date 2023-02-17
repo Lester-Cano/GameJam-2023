@@ -33,15 +33,9 @@ public class Mov1_1 : MonoBehaviour
 
     public float TimeAnimEspera;
 
-    public int RandomMap1;
-    public int RandomMap2;
-    public int RandomMap3;
+    public float tiempoSpamLvl;
 
-    public float tiempoSpamLvl1;
-    public float tiempoSpamLvl2;
-    public float tiempoSpamLvl3;
-
-    public int cantidadPantalla;
+    public float cantidadPantalla;
 
 
     List<int> rnds = new List<int>();
@@ -101,7 +95,7 @@ public class Mov1_1 : MonoBehaviour
          
             yield return new WaitForSeconds(TimeAnimEspera);
         }
-        cantidadPantalla += 2;
+        //cantidadPantalla += 2;
     }
     IEnumerator generarlvl3()
     {
@@ -140,7 +134,7 @@ public class Mov1_1 : MonoBehaviour
             }
 
             rnds.Clear();
-            yield return new WaitForSeconds(tiempoSpamLvl1);
+            yield return new WaitForSeconds(tiempoSpamLvl);
         }
     }
 
@@ -164,6 +158,20 @@ public class Mov1_1 : MonoBehaviour
     public void Seleccion()
     {
 
+    }
+
+    public void Encender()
+    {
+        //Debug.Log($"Encender >> {gameObject.name}");
+        StartCoroutine(IniciarJuego());
+    }
+
+    IEnumerator IniciarJuego() 
+    {
+
+        yield return new WaitForSeconds(1);
+        activarlvl1 = true;
+    
     }
 }
 

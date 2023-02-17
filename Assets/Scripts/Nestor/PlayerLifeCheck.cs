@@ -8,6 +8,7 @@ public class PlayerLifeCheck : MonoBehaviour
     public float groundedCheckDistance;
     float bufferCheckDistance;
 
+    [SerializeField] Canvas Canvasdeath;
 
     Animator animator;
 
@@ -34,7 +35,7 @@ public class PlayerLifeCheck : MonoBehaviour
             bool Falling = animator.GetBool("Grounded");
             animator.SetBool("Grounded", true);
         }
-        
+
     }
 
     bool isGrounded()
@@ -54,18 +55,27 @@ public class PlayerLifeCheck : MonoBehaviour
 
     void Death()
     {
+/*
+        ControladorPuntos cp = FindObjectOfType<ControladorPuntos>();
+
+        cp.FinalPartida();*/
+
         is_death = true;
         Rigidbody rgb = GetComponent<Rigidbody>();
         rgb.constraints = RigidbodyConstraints.FreezeAll;
 
         bool Dead = animator.GetBool("Dead");
         animator.SetBool("Dead", true);
+
         
         PlayerMovementHybrid pMH = GetComponent<PlayerMovementHybrid>();
         pMH.dead = true;
 
-    }
+        Canvasdeath.gameObject.SetActive(true);
+        
 
+    }
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Dead")
@@ -73,18 +83,17 @@ public class PlayerLifeCheck : MonoBehaviour
             Debug.Log("muerase");
             Death();
         }
-    }
+    }*/
 
-    private void OnCollisionEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-
         Debug.Log("triger");
 
-        if (other.tag=="Dead")
+        if (other.tag == "Dead")
         {
             Debug.Log("muerase");
             Death();
         }
-    }
 
+    }
 }

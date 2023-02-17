@@ -4,7 +4,6 @@ using TMPro;
 
 public class Highest : MonoBehaviour
 {
-    public TextMeshProUGUI score, highScore;
     public string paso;
 
 
@@ -12,38 +11,37 @@ public class Highest : MonoBehaviour
     void Start()
     {
 
-        paso  = PlayerPrefs.GetInt("HighScore", 0).ToString();
-        highScore.text = paso;
+        paso  = PlayerPrefs.GetFloat("HighScore", 0).ToString();
     }
 
     public void ReviewData()
     {
-        int DataToReview = PlayerPrefs.GetInt("Temporary Points");
-        int tmp1, tmp2, tmp3;
+        float DataToReview = PlayerPrefs.GetFloat("Temporary Points");
+        float tmp1, tmp2, tmp3;
 
-        if (DataToReview > PlayerPrefs.GetInt("HighScore"))
+        if (DataToReview > PlayerPrefs.GetFloat("HighScore"))
         {
-            tmp1 = PlayerPrefs.GetInt("HighScore");
-            PlayerPrefs.SetInt("HighScore", DataToReview);
+            tmp1 = PlayerPrefs.GetFloat("HighScore");
+            PlayerPrefs.SetFloat("HighScore", DataToReview);
         }
         else
         {
             tmp1 = DataToReview;
         }
 
-        if (tmp1 > PlayerPrefs.GetInt("SecondHighest"))
+        if (tmp1 > PlayerPrefs.GetFloat("SecondHighest"))
         {
-            tmp2 = PlayerPrefs.GetInt("SecondHighest");
-            PlayerPrefs.SetInt("SecondHighest", tmp1);
+            tmp2 = PlayerPrefs.GetFloat("SecondHighest");
+            PlayerPrefs.SetFloat("SecondHighest", tmp1);
         }
         else
         {
             tmp2 = tmp1;
         }
-        if (tmp2 > PlayerPrefs.GetInt("ThirdHighest"))
+        if (tmp2 > PlayerPrefs.GetFloat("ThirdHighest"))
         {
-            tmp3 = PlayerPrefs.GetInt("ThirdHighest");
-            PlayerPrefs.SetInt("ThirdHighest",tmp2);
+            tmp3 = PlayerPrefs.GetFloat("ThirdHighest");
+            PlayerPrefs.SetFloat("ThirdHighest",tmp2);
         }
         else
         {

@@ -81,15 +81,16 @@ MonoBehaviour:
   MatBase: {fileID: 0}
   main: {fileID: 0}
   MaloPrefOn: {fileID: 3026420174170619816}
-  MalooPrefOff: {fileID: 5792750419017256915}
+  MalooPrefOff: {fileID: 3215814915543762630}
   BuenoPrefOn: {fileID: 1797366179034863088}
   BuenoPrefOff: {fileID: 5792750419017256915}
   Puas: {fileID: 4188315439964985453}
-  TiempoEspamPuas: 3
-  TimeAnimEspera: 0
+  TiempoEspamPuas: 2
+  TimeAnimEspera: 2
   tiempoSpamLvl1: 1
   tiempoSpamLvl2: 1
   tiempoSpamLvl3: 1
+  isActive: 0
 --- !u!1001 &7361876922754774639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +188,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5488380598847424967, guid: 8f48f63dfb0422045a38475bba4ba05d, type: 3}
   m_PrefabInstance: {fileID: 7361876922754774639}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3215814915543762630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5371240396633551017, guid: 8f48f63dfb0422045a38475bba4ba05d, type: 3}
+  m_PrefabInstance: {fileID: 7361876922754774639}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5792750419017256915 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3911763162645756348, guid: 8f48f63dfb0422045a38475bba4ba05d, type: 3}
@@ -199,13 +205,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782263204}
     m_Modifications:
+    - target: {fileID: 2488078972179715308, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559192874471215065, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683684804708901392, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769654498197379416, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347135629549318038, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048263704250550187, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058598645832534836, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6644294606100812679, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
       propertyPath: m_Name
       value: Pinchos
       objectReference: {fileID: 0}
     - target: {fileID: 6644294606100812679, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644294606100812679, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6644294606100819064, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
       propertyPath: m_RootOrder
@@ -251,7 +289,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7562089151800656780, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562089151800656780, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562089151800656780, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562089151800656780, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937088581484137022, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 10451556722480702, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 18fb291c1927237448e3758f9ccd7e5f, type: 3}
 --- !u!1 &4188315439964985453 stripped
 GameObject:

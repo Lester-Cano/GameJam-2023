@@ -13,69 +13,105 @@ public class BeginningGameScene : MonoBehaviour
 
     public bool TransitionBool;
 
-    float timer = 0f;
+    public float timer = 0f;
 
     public AudioSource audioswitch;
 
-    private void Start()
+    public Mov1_1 main;
+
+    private void Awake()
     {
-        
+        main = FindObjectOfType<Mov1_1>();
     }
+    /* public void playLightSFX()
+    {
+        audioswitch.Play();
+    }
+    */
+
 
     private void Update()
     {
 
-        if (timer % 60 < 14)
+        if (timer < 50)
         {
             timer += Time.deltaTime;
         }
 
 
-        if (timer % 60 > 5 && timer % 60 < 7)
+        if (timer > 23 && timer < 23.5)
         {
-            phase1();
+            phase1C();
         }
-        else if (timer % 60 > 7 && timer % 60 < 10)
+        else if (timer > 24 && timer < 47)
         {
             phase2();
+            if (!entera2)
+            {
+                entre2();
+            }
         }
-        else if (timer % 60 > 10 && timer % 60 < 11)
+        else if (timer > 47 && timer < 47.5)
         {
-            phase3();
+            phase3C();
+            
         }
-        else if (timer % 60 > 11 && timer % 60 < 12)
+        else if (timer > 48 && timer < 48.5)
         {
             fade.gameObject.SetActive(false);
-            TransitionBool= false;
-            audioswitch.Play();
-            clock.gameObject.SetActive(true);
-            
+            TransitionBool = false;
+          
         }
     }
 
-    void phase1()
+    void phase1C()
     {
         fade.gameObject.SetActive(true);
-        audioswitch.Play();
         canvasfirst1.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox2;
         TransitionBool = true;
+        //playLightSFX();     
+
     }
     void phase2()
     {
         canvasfirst2.gameObject.SetActive(true);
-        audioswitch.Play();
         fade.gameObject.SetActive(false);
-        TransitionBool= false;
+        TransitionBool = false;
+        //playBGMusic();     
+
     }
 
-    void phase3()
+    void phase3C()
     {
-        audioswitch.Play();
         fade.gameObject.SetActive(true);
-        TransitionBool= true;
+        TransitionBool = true;
         canvasfirst3.gameObject.SetActive(true);
         canvasfirst2.gameObject.SetActive(false);
         RenderSettings.skybox = Skybox3;
+        //playLightSFX();      
+        if (!entera3)
+        {
+            entre3();
+        }
+    }
+    public bool entera2 = false;
+    public bool entera3 = false;
+
+
+    public void entre2() 
+    {
+        main.activarlvl2 = true;
+        main.tiempoSpamLvl = 1.9f;
+        main.cantidadPantalla = 26;
+        entera2= true;
+    }
+
+    public void entre3()
+    {
+        main.activarlvl3 = true;
+        main.tiempoSpamLvl = 1.6f;
+        main.cantidadPantalla = 50;
+        entera3= true;
     }
 }

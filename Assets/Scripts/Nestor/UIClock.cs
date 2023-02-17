@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class UIClock : MonoBehaviour
 {
-    float timeDuration = 0f;
+    public float timeCooldownEvent = 23f;
 
-    float timer23 = 23, normalTimer;
+    public float timer23 = 23, TimeScore;
 
     [SerializeField] TextMeshProUGUI clock23, clockFM, clockSM, clockFS, clockSS;
 
@@ -21,20 +21,20 @@ public class UIClock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        normalTimer += Time.deltaTime;
+        TimeScore += Time.deltaTime;
         timer23 -= Time.deltaTime;
         UpdateTimerDisplay23(timer23);
-        UpdateTimerDisplay(normalTimer);
+        UpdateTimerDisplay(TimeScore);
         if (timer23 == 0)
         {
-            MapEvent();
-            timer23= 0;
+            //MapEvent();
+            ResetTimer();
         }
     }
 
     void ResetTimer()
     {
-        timer23 -= timeDuration;
+        timer23 = timeCooldownEvent;
     }
 
     void UpdateTimerDisplay23(float time)
