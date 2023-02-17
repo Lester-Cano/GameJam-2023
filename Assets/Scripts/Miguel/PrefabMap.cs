@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,16 +23,17 @@ public class PrefabMap : MonoBehaviour
     [Header("Daños")]
 
     public GameObject Puas;
+    public GameObject Cables;
+    public GameObject CablesRetorno;
     public float TiempoEspamPuas = 1;
-
+    public float TiempoCables = 0.5f;
 
     
     public float TimeAnimEspera;
 
 
-    public float tiempoSpamLvl1;
-    public float tiempoSpamLvl2;
-    public float tiempoSpamLvl3;
+    public float tiempoSpamLvl;
+    public float tiempoEvento;
 
     public bool isActive;
 
@@ -42,7 +44,7 @@ public class PrefabMap : MonoBehaviour
     {
 
         main = FindObjectOfType<Mov1_1>();
-
+     
     }
     void Start()
     {
@@ -69,7 +71,7 @@ public class PrefabMap : MonoBehaviour
         isActive = true;
         MaloPrefOn.SetActive(true);
 
-        yield return new WaitForSeconds(tiempoSpamLvl1);
+        yield return new WaitForSeconds(tiempoSpamLvl);
         MaloPrefOn.SetActive(false);
 
         MalooPrefOff.SetActive(true);
@@ -92,5 +94,42 @@ public class PrefabMap : MonoBehaviour
     {
         //Debug.Log($"Encender >> {gameObject.name}");
         StartCoroutine(preOn());
+    }
+
+    public void Evento() 
+    {
+
+        StartCoroutine(EventoCables());
+    }
+
+    IEnumerator EventoCables() 
+    {
+        isActive = true;
+        yield return new WaitForSeconds(2);
+
+        MaloPrefOn.SetActive(true);
+
+        yield return new WaitForSeconds(TiempoCables);
+
+        MaloPrefOn.SetActive(false);
+
+        MalooPrefOff.SetActive(true);
+
+        Cables.SetActive(true);
+
+        yield return new WaitForSeconds(tiempoEvento);
+        
+        CablesRetorno.SetActive(true);
+
+        MalooPrefOff.SetActive(false);   
+        
+        Cables.SetActive(false);
+
+        yield return new WaitForSeconds(tiempoEvento/2);
+        
+        CablesRetorno.SetActive(false);
+
+        isActive = true; 
+
     }
 }
