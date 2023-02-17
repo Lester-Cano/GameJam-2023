@@ -9,6 +9,8 @@ public class ControladorPuntos : MonoBehaviour
     public static ControladorPuntos Instance;
     [SerializeField] public float cantidadPuntos = 0;
 
+    [SerializeField] public int multPuntos = 1;
+
     [SerializeField] TextMeshProUGUI scoreUI;
 
     [SerializeField] Highest hg;
@@ -35,8 +37,9 @@ public class ControladorPuntos : MonoBehaviour
 
     public void AddScore()
     {
-        cantidadPuntos += 100;
+        cantidadPuntos += 100 * multPuntos;
         scoreUI.text = cantidadPuntos.ToString();
+        multPuntos++;
     }
 
     public void SaveScore()
