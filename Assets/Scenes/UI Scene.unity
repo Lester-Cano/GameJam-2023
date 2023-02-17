@@ -2213,7 +2213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &626675916
 Transform:
   m_ObjectHideFlags: 0
@@ -4476,7 +4476,6 @@ MonoBehaviour:
   HighestScore: {fileID: 1305390616}
   SecondHighest: {fileID: 593831700}
   ThirdHiguest: {fileID: 905755196}
-  cantidadPuntos: 1
 --- !u!1 &1076720312
 GameObject:
   m_ObjectHideFlags: 0
@@ -8417,7 +8416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2019331394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9383,7 +9382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225563168273218798, guid: c5b0e282bc9243c44a0c3b96a9999c3a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b0e282bc9243c44a0c3b96a9999c3a, type: 3}
