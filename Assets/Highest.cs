@@ -10,8 +10,7 @@ public class Highest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        paso  = PlayerPrefs.GetFloat("HighScore", 0).ToString();
+        GameEvents.current.onPlayerDeath += ReviewData;
     }
 
     public void ReviewData()

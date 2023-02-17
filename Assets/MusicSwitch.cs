@@ -46,6 +46,10 @@ public class MusicSwitch : MonoBehaviour
         if (BringBool.TransitionBool)
         {
             Identificadormusic.SetActive(false);
+        }
+
+        if (!BringBool.TransitionBool && BringBool.phasetwoMusicON)
+        {
             DistortedTrackOn.SetActive(true);
         }
 

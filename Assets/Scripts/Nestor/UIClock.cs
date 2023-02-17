@@ -8,34 +8,35 @@ public class UIClock : MonoBehaviour
 {
     public float timeCooldownEvent = 23f;
 
-    public float timer23 = 23, TimeScore;
+    public float timer23, timeScore;
 
     [SerializeField] TextMeshProUGUI clock23, clockFM, clockSM, clockFS, clockSS;
+
+    bool protaAlive = true;
 
 
     void Start()
     {
-        
+        protaAlive = true;
+        timer23 = 0;
+        timeScore = 0;
+        GameEvents.current.onPlayerDeath += GameOver;
     }
 
     // Update is called once per frame
     void Update()
     {
-        TimeScore += Time.deltaTime;
-        timer23 -= Time.deltaTime;
-        UpdateTimerDisplay23(timer23);
-        UpdateTimerDisplay(TimeScore);
-        if (timer23 == 0)
+
+        if (protaAlive)
         {
-            //MapEvent();
-            ResetTimer();
+            timeScore += Time.deltaTime;
+            timer23 += Time.deltaTime;
+            UpdateTimerDisplay23(timer23);
+            UpdateTimerDisplay(timeScore);
         }
     }
 
-    void ResetTimer()
-    {
-        timer23 = timeCooldownEvent;
-    }
+    
 
     void UpdateTimerDisplay23(float time)
     {
@@ -44,6 +45,14 @@ public class UIClock : MonoBehaviour
 
         string currentTime = seconds.ToString();
         clock23.text = currentTime.ToString();
+
+        if (seconds >= 23)
+        {
+            GameEvents.current.ChangeStage();
+            seconds -= 23;
+            timer23 = 0;
+        }
+
     }
     void UpdateTimerDisplay(float time)
     {
@@ -55,10 +64,24 @@ public class UIClock : MonoBehaviour
         clockSM.text = currentTime[1].ToString();
         clockFS.text = currentTime[2].ToString();
         clockSS.text = currentTime[3].ToString();
+
+        if (minutes >= 1)
+        {
+            GameEvents.current.ScoreMinute();
+            minutes -= 1;
+            seconds = 0;
+            timeScore = 0;
+        }
+
     }
 
-    void MapEvent()
+    public void GameOver()
     {
-
+        protaAlive= false;
+        timeScore = 0;
+        timer23 = 0;
+        UpdateTimerDisplay23(timer23);
+        UpdateTimerDisplay(timeScore);
     }
+    
 }

@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5328231981949318955}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.000004}
 --- !u!33 &5926622097053260430
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 9105844502961715342}
   - component: {fileID: 6465623277332663364}
   - component: {fileID: 2238713518122282321}
+  - component: {fileID: 6702540009573677232}
+  - component: {fileID: 7480700537222762816}
   m_Layer: 0
   m_Name: Reloj prefab
   m_TagString: Untagged
@@ -109,9 +111,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4808294560906522001}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000009536742}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 3.6839294, y: 1.11, z: -8.859518}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5044556, y: 2.5044556, z: 2.5044556}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4226471528431686719}
@@ -192,6 +194,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6702540009573677232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808294560906522001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a566971c72b4ed44bbe077815fc9a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToSubstract: 5
+  parti: {fileID: 8419568515326960013, guid: 8fbbbbb8dc54b0149933acd6629b0d75, type: 3}
+--- !u!65 &7480700537222762816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808294560906522001}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36309817, y: 0.31860703, z: 0.1630589}
+  m_Center: {x: 0.0010122021, y: 0.029063094, z: -0.0019432245}
 --- !u!1 &9045361956249147174
 GameObject:
   m_ObjectHideFlags: 0

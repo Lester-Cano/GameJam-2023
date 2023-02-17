@@ -21,9 +21,6 @@ public class Mov1_1 : MonoBehaviour
 
     public List<PrefabMap> ObjetosCompletos;
 
-    public bool evento = false;
-
-
     public bool activarlvl1 = false;
     public bool activarlvl2 = false;
     public bool activarlvl3 = false;
@@ -40,13 +37,23 @@ public class Mov1_1 : MonoBehaviour
 
     List<int> rnds = new List<int>();
 
+    List<int> EventRnds = new List<int>();
 
+
+
+    [Header("Eventos")]
+    public bool esEvento = false;
+  
 
     // Start is called before the first frame update
     void Start()
     {
         ObjetosCompletos = new List<PrefabMap>();
         rnds = new List<int>();
+        EventRnds = new List<int>();
+        GameEvents.current.onStageEvent += ActivarPatrones;
+            //StartCoroutine(ActivarEvento());
+        
     }
 
     // Update is called once per frame
@@ -67,8 +74,12 @@ public class Mov1_1 : MonoBehaviour
             SumarLvl3();
             activarlvl3 = false;
         }
+        if (esEvento)
+        {
+            StopCoroutine(ActivateRandomCubes());
+        }
     }
-
+    
     IEnumerator generarlvl1()
     {
         yield return new WaitForSeconds(TimeAnimEspera);
@@ -115,27 +126,150 @@ public class Mov1_1 : MonoBehaviour
 
     private IEnumerator ActivateRandomCubes()
     {
-        while (true)
+        while (!esEvento)
         {
-            // Genera randoms
-            for (int i = 0; i < cantidadPantalla; i++)
-            {
-                int random = Random.Range(0, ObjetosCompletos.Count);                
-                while (rnds.Contains(random))
+            
+                // Genera randoms
+                for (int i = 0; i < cantidadPantalla; i++)
                 {
-                    random = Random.Range(0, ObjetosCompletos.Count);
+                    int random = Random.Range(0, ObjetosCompletos.Count);
+                    while (rnds.Contains(random))
+                    {
+                        random = Random.Range(0, ObjetosCompletos.Count);
+                    }
+                    rnds.Add(random);
                 }
-                rnds.Add(random);         
-            }
 
-            for (int i = 0; i < rnds.Count; i++)
-            {
-                ObjetosCompletos[rnds[i]].Encender();               
-            }
+                for (int i = 0; i < rnds.Count; i++)
+                {
+                    ObjetosCompletos[rnds[i]].Encender();
+                }
 
-            rnds.Clear();
-            yield return new WaitForSeconds(tiempoSpamLvl);
+                rnds.Clear();
+                yield return new WaitForSeconds(tiempoSpamLvl);
+            
         }
+           
+    }
+
+    public float tiempoPostEvento;
+    public float tiempoDañoEvento;
+    private IEnumerator ActivarEvento() 
+    {
+        yield return new WaitForSeconds(2);
+           
+        int radn = Random.Range(0, 5);
+        
+        if (radn == 0)
+        {
+           
+                for (int i = 0; i < ObjetosCompletos.Count; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        EventRnds.Add(i);
+                    }
+                }
+                for (int i = 0; i < EventRnds.Count; i++)
+                {
+
+                    ObjetosCompletos[EventRnds[i]].Evento();
+                yield return new WaitForSeconds(tiempoDañoEvento);
+            }
+                rnds.Clear();
+            yield return new WaitForSeconds(tiempoPostEvento);
+            esEvento = false;
+            }
+        if (radn == 1)
+        {
+            for (int i = 0; i < ObjetosCompletos.Count; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    EventRnds.Add(i);
+                }
+            }
+            for (int i = 0; i < EventRnds.Count; i++)
+            {
+
+                ObjetosCompletos[EventRnds[i]].Evento();
+                yield return new WaitForSeconds(tiempoDañoEvento);
+            }
+            rnds.Clear();
+            yield return new WaitForSeconds(2);
+            esEvento = false;
+        }
+        if (radn == 2)
+        {
+            for (int i = 0; i < ObjetosCompletos.Count; i++)
+            {
+                EventRnds.Add(i);
+            }
+            int numerf = EventRnds.Count / 2 ;
+
+            for (int i = EventRnds.Count -1; i > numerf; i--)
+            {
+                ObjetosCompletos[EventRnds[i]].Evento();
+                yield return new WaitForSeconds(tiempoDañoEvento);
+            }
+            rnds.Clear();
+            yield return new WaitForSeconds(tiempoPostEvento);
+            esEvento = false;
+        }
+        if (radn == 3)
+        {
+            for (int i = 0; i < ObjetosCompletos.Count; i++)
+            {
+                
+                EventRnds.Add(i);
+            }
+            int numerf = EventRnds.Count / 2 ;
+            for (int i = 0; i < numerf; i++)
+            {
+                ObjetosCompletos[EventRnds[i]].Evento();
+                yield return new WaitForSeconds(tiempoDañoEvento);
+
+            }        
+            rnds.Clear();
+            yield return new WaitForSeconds(tiempoPostEvento);
+            esEvento = false;
+        }
+        if (radn == 4)
+        {
+            for (int i = 0; i < 70; i++)
+            {
+
+                EventRnds.Add(i);
+            }
+            for (int i = 0; i < EventRnds.Count; i++)
+            {
+                ObjetosCompletos[EventRnds[i]].Evento();
+                yield return new WaitForSeconds(tiempoDañoEvento);
+
+            }
+            rnds.Clear();
+            yield return new WaitForSeconds(tiempoPostEvento);
+            esEvento = false;
+        }
+        if (radn == 5)
+        {
+            for (int i = 0; i < 70; i++)
+            {
+
+                EventRnds.Add(i);
+            }
+            for (int i = 69 ; i > 0; i--)
+            {
+                ObjetosCompletos[EventRnds[i]].Evento();
+                yield return new WaitForSeconds(tiempoDañoEvento);
+
+            }
+            rnds.Clear();
+            yield return new WaitForSeconds(tiempoPostEvento);
+            esEvento = false;
+        }
+        print(radn);
+        StartCoroutine(ActivateRandomCubes());
     }
 
     private void SumarLvl1()
@@ -152,26 +286,33 @@ public class Mov1_1 : MonoBehaviour
     {
 
         StartCoroutine(generarlvl3());
-    }
-
-
-    public void Seleccion()
-    {
-
-    }
+    }  
 
     public void Encender()
     {
         //Debug.Log($"Encender >> {gameObject.name}");
         StartCoroutine(IniciarJuego());
     }
+    public void ActivarPatrones()
+    {       
+        StartCoroutine(ActivarEvento());
+        StopCoroutine(ActivateRandomCubes());
+    }
+
+
+    public void ActivarRandom()
+    {
+        StartCoroutine(ActivateRandomCubes());
+    }
+
+
 
     IEnumerator IniciarJuego() 
-    {
-
-        yield return new WaitForSeconds(1);
+    {    
+        yield return new WaitForSeconds(2);
         activarlvl1 = true;
     
     }
+
 }
 

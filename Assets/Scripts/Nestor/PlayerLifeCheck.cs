@@ -6,16 +6,18 @@ public class PlayerLifeCheck : MonoBehaviour
 {
     public bool grounded = false, is_death;
     public float groundedCheckDistance;
-    float bufferCheckDistance;
+    [SerializeField] int lives;
 
     [SerializeField] Canvas Canvasdeath;
 
     Animator animator;
-
+    private SFXPlaying Deathsfx;
 
     void Start()
     {
+        lives = 1;
         animator = GetComponentInChildren<Animator>();
+        Deathsfx = FindObjectOfType<SFXPlaying>();
     }
 
     private void FixedUpdate()
@@ -53,12 +55,17 @@ public class PlayerLifeCheck : MonoBehaviour
 
     }
 
+    public void CheckDeath(int livesChange)
+    {
+        lives += livesChange;
+
+        if (lives < 0) Death();
+    }
+
     void Death()
     {
-/*
-        ControladorPuntos cp = FindObjectOfType<ControladorPuntos>();
 
-        cp.FinalPartida();*/
+        GameEvents.current.PlayerDeath();
 
         is_death = true;
         Rigidbody rgb = GetComponent<Rigidbody>();
@@ -72,7 +79,11 @@ public class PlayerLifeCheck : MonoBehaviour
         pMH.dead = true;
 
         Canvasdeath.gameObject.SetActive(true);
-        
+
+        if (Deathsfx != null)
+        {
+            Deathsfx.PlayDieSFX();
+        }
 
     }
     /*
@@ -87,11 +98,13 @@ public class PlayerLifeCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("triger");
-
         if (other.tag == "Dead")
         {
-            Debug.Log("muerase");
+            Debug.Log("-1 vida");
+            CheckDeath(-1);
+        }
+        if (other.tag == "FallDead")
+        {
             Death();
         }
 
