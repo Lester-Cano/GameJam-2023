@@ -111,21 +111,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda
       objectReference: {fileID: 0}
+    - target: {fileID: 4210212539334812876, guid: e433549e906024845bf91982124856c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210212539334812876, guid: e433549e906024845bf91982124856c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357148515191669055, guid: e433549e906024845bf91982124856c0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465182574405438052, guid: e433549e906024845bf91982124856c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8400916626932084532, guid: e433549e906024845bf91982124856c0, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8400916626932084532, guid: e433549e906024845bf91982124856c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 8400916626932084532, guid: e433549e906024845bf91982124856c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.085999966
+      value: 0.959
       objectReference: {fileID: 0}
     - target: {fileID: 8400916626932084532, guid: e433549e906024845bf91982124856c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 8400916626932084532, guid: e433549e906024845bf91982124856c0, type: 3}
       propertyPath: m_LocalRotation.w

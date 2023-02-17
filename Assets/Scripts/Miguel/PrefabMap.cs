@@ -73,7 +73,7 @@ public class PrefabMap : MonoBehaviour
     // Update is called once per frame
     IEnumerator RandomLvl1()
     {
-        BeneficioActivo();
+        
         isActive = true;
         MaloPrefOn.SetActive(true);
 
@@ -87,6 +87,7 @@ public class PrefabMap : MonoBehaviour
         yield return new WaitForSeconds(TiempoEspamPuas);
         MalooPrefOff.SetActive(false);
         Puas.SetActive(false);
+        BeneficioActivo();
         isActive = false;
     }
 
