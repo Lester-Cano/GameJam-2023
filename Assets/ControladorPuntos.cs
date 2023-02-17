@@ -38,7 +38,7 @@ public class ControladorPuntos : MonoBehaviour
     public void AddScore()
     {
         cantidadPuntos += 100 * multPuntos;
-        scoreUI.text = cantidadPuntos.ToString();
+        UpdatePointsDisplay();
         multPuntos++;
     }
 
@@ -47,6 +47,10 @@ public class ControladorPuntos : MonoBehaviour
         PlayerPrefs.SetFloat("Temporary Points", cantidadPuntos);
     }
 
+    public void UpdatePointsDisplay()
+    {
+        scoreUI.text = cantidadPuntos.ToString();
+    }
      
         
 
