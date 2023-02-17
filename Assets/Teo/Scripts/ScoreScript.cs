@@ -10,7 +10,6 @@ public class ScoreScript : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI HighestScore, SecondHighest, ThirdHiguest;
 
-    [SerializeField] private int cantidadPuntos = 1;
     
     // Start is called before the first frame update
     void Start()
@@ -32,26 +31,9 @@ public class ScoreScript : MonoBehaviour
 
     public void AsignScore()
     {
-
-        float minutesFirst = Mathf.Floor(PlayerPrefs.GetFloat("HighScore") / 60);
-        float secondsFirst = Mathf.Floor(PlayerPrefs.GetFloat("HighScore") % 60);
-
-        string currentTime = string.Format("{00:00}:{1:00}", minutesFirst, secondsFirst);
-
-        float minutesSecond = Mathf.Floor(PlayerPrefs.GetFloat("HighScore") / 60);
-        float secondsSecond = Mathf.Floor(PlayerPrefs.GetFloat("HighScore") % 60);
-
-        string currentTime2 = string.Format("{00:00}:{1:00}", minutesSecond, secondsSecond);
-
-        float minutesThird = Mathf.Floor(PlayerPrefs.GetFloat("HighScore") / 60);
-        float secondsThird = Mathf.Floor(PlayerPrefs.GetFloat("HighScore") % 60);
-
-        string currentTime3 = string.Format("{00:00}:{1:00}", minutesThird, secondsThird);
-
-        HighestScore.text = currentTime.ToString();
-        SecondHighest.text = currentTime2.ToString();
-        ThirdHiguest.text = currentTime3.ToString();
-
+        HighestScore.text = PlayerPrefs.GetFloat("HighScore").ToString();
+        SecondHighest.text = PlayerPrefs.GetFloat("SecondHighest").ToString();
+        ThirdHiguest.text = PlayerPrefs.GetFloat("ThirdHighest").ToString();
     }
 
 }
