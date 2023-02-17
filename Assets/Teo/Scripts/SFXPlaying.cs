@@ -15,7 +15,7 @@ public class SFXPlaying : MonoBehaviour
     {
         PlayerReffDash = FindObjectOfType<PlayerMovementHybrid>().GetComponent<PlayerMovementHybrid>();
         PlayerReffDie = FindObjectOfType<PlayerLifeCheck>().GetComponent<PlayerLifeCheck>();
-        deathCheck = true;
+        deathCheck = false;
     }
     public void PlayDashSFX()
     {
@@ -23,24 +23,10 @@ public class SFXPlaying : MonoBehaviour
     }
     public void PlayDieSFX()
     {
-        deathCheck = false;
+        deathCheck = true;
         DieSFX.Play();
+
     }
 
-    private void Update()
-    {
-     /*   if (Input.GetKeyDown(KeyCode.F) && PlayerReffDash.isDashing)
-        {
-            PlayDashSFX();
-        }
-
-        if (PlayerReffDie.is_death && deathCheck)
-        {
-            PlayDieSFX();
-
-        }
-     */
-        
-    }
 
 }
