@@ -21,6 +21,7 @@ public class SubstractTime : MonoBehaviour
         if (other.tag == "Player")
         {
             clock.timer23 -= timeToSubstract;
+            gameObject.SetActive(false);
         }
     }
 
