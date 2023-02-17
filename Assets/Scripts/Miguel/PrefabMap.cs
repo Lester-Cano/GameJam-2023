@@ -19,7 +19,7 @@ public class PrefabMap : MonoBehaviour
 
     public GameObject BuenoPrefOn;
     public GameObject BuenoPrefOff;
-
+    public GameObject Feed;
 
     public GameObject[] Beneficios;
 
@@ -92,7 +92,7 @@ public class PrefabMap : MonoBehaviour
 
     IEnumerator preOn() 
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         StartCoroutine(RandomLvl1());
 
     }
@@ -142,7 +142,7 @@ public class PrefabMap : MonoBehaviour
     public void BeneficioActivo() 
     {
        int Rand = Random.Range(0, 50);
-        print(Rand);
+       
         if (Rand >= 48)
         {
             if (!BuenoN)
@@ -156,11 +156,14 @@ public class PrefabMap : MonoBehaviour
 
     public IEnumerator SpamBueno()
     {   BuenoN= true;
-        int cual = Random.Range(0,Beneficios.Length);
+        int cual = Random.Range(0,2);
         print(cual);
         Beneficios[cual].SetActive(true);
         yield return new WaitForSeconds(5);
+        Feed.SetActive(true);
         Beneficios[cual].SetActive(false);
-        BuenoN= false;
+        yield return new WaitForSeconds(0.7f);
+        Feed.SetActive(false);
+        BuenoN = false;
     }
 }

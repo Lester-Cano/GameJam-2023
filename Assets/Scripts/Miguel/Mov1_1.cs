@@ -296,6 +296,7 @@ public class Mov1_1 : MonoBehaviour
     public void ActivarPatrones()
     {       
         StartCoroutine(ActivarEvento());
+        StopCoroutine(ActivateRandomCubes());
     }
 
 

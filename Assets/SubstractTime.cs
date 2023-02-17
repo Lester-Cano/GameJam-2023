@@ -7,6 +7,8 @@ public class SubstractTime : MonoBehaviour
 
     [SerializeField] float timeToSubstract;
 
+    public ParticleSystem parti;
+
     UIClock clock;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class SubstractTime : MonoBehaviour
         {
             clock.timer23 -= timeToSubstract;
             gameObject.SetActive(false);
+            parti.Emit(0);
         }
     }
 

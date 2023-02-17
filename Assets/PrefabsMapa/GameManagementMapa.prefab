@@ -1526,19 +1526,16 @@ MonoBehaviour:
   - {fileID: 6185983875665130808}
   - {fileID: 5366800919819316185}
   ObjetosCompletos: []
-  evento: 1
-  activarlvl1: 0
+  activarlvl1: 1
   activarlvl2: 0
   activarlvl3: 0
   PrefabMapa: {fileID: 252629880556366836, guid: 1b929329878726249a5e611ab6dc58a9, type: 3}
-  TimeAnimEspera: 0.02
-  RandomMap1: 5
-  RandomMap2: 15
-  RandomMap3: 30
-  tiempoSpamLvl1: 2.5
-  tiempoSpamLvl2: 1
-  tiempoSpamLvl3: 1
+  TimeAnimEspera: 0.005
+  tiempoSpamLvl: 2.1
   cantidadPantalla: 10
+  esEvento: 0
+  tiempoPostEvento: 3.5
+  "tiempoDa\xF1oEvento": 0.025
 --- !u!1 &3525808735353711970
 GameObject:
   m_ObjectHideFlags: 0

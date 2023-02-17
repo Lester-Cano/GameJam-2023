@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7590267123533054012}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.209, y: 0.855, z: 1.2263751}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -39,6 +39,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7590267123533054002}
     m_Modifications:
+    - target: {fileID: 3956953861475361782, guid: 9d48b103f1964ca408e693e3160c3714, type: 3}
+      propertyPath: parti
+      value: 
+      objectReference: {fileID: 8419568515326960013, guid: 8fbbbbb8dc54b0149933acd6629b0d75, type: 3}
     - target: {fileID: 5974800680088426107, guid: 9d48b103f1964ca408e693e3160c3714, type: 3}
       propertyPath: m_Name
       value: Mario_Coin
@@ -49,15 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6458462292552879297, guid: 9d48b103f1964ca408e693e3160c3714, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.20075
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6458462292552879297, guid: 9d48b103f1964ca408e693e3160c3714, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3618
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6458462292552879297, guid: 9d48b103f1964ca408e693e3160c3714, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2261
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6458462292552879297, guid: 9d48b103f1964ca408e693e3160c3714, type: 3}
       propertyPath: m_LocalRotation.w

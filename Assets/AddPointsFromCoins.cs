@@ -7,6 +7,8 @@ public class AddPointsFromCoins : MonoBehaviour
 
     [SerializeField] ControladorPuntos cp;
 
+    public ParticleSystem parti;
+
     void Start()
     {
         cp = FindObjectOfType<ControladorPuntos>();
@@ -19,6 +21,7 @@ public class AddPointsFromCoins : MonoBehaviour
             cp.cantidadPuntos += 50;
             cp.UpdatePointsDisplay();
             gameObject.SetActive(false);
+            parti.Emit(0);
         }
     }
 }
