@@ -81,7 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8748343166039358232, guid: 957d8c1a4f582964fba96466f01adfed, type: 3}
       propertyPath: m_Name
-      value: Mario_Coin
+      value: Mario_Coin Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748343166039358232, guid: 957d8c1a4f582964fba96466f01adfed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -424902256630348219, guid: 957d8c1a4f582964fba96466f01adfed, type: 3}
